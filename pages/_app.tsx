@@ -6,6 +6,7 @@ import { initializeApollo } from "@services/graphql";
 import { ApolloProvider } from "@apollo/client";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { Hydrate } from "react-query/hydration";
+import { Page } from "components";
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
     const apolloClient = initializeApollo();
@@ -15,7 +16,9 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
             <ApolloProvider client={apolloClient}>
                 <QueryClientProvider client={queryClient}>
                     <Hydrate state={pageProps.dehydratedState}>
-                        <Component {...pageProps} />
+                        <Page>
+                            <Component {...pageProps} />
+                        </Page>
                     </Hydrate>
                 </QueryClientProvider>
             </ApolloProvider>
