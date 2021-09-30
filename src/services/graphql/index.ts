@@ -8,7 +8,7 @@ let apolloClient: ApolloClient<NormalizedCacheObject> | null = null;
 
 const createApolloClient = new ApolloClient({
     ssrMode: typeof window === "undefined",
-    uri: process.env.STRAPI_GRAPHQL_URL,
+    uri: process.env.NEXT_PUBLIC_API_URL,
     cache: new InMemoryCache(),
 });
 
