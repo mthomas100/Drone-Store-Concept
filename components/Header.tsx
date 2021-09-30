@@ -3,8 +3,8 @@ import Image from "next/image";
 import { HiOutlineSearch as Search } from "react-icons/hi";
 import { GiHamburgerMenu as Hamburger } from "react-icons/gi";
 import { useWindowSize, useMeasure } from "react-use";
-
-const links = ["Home", "Gallery", "Products", "Support", "Search"];
+import { useLayout } from "lib/layoutState";
+import { useData } from "lib/dataState";
 
 const DroneIcon: React.FC = () => (
     <div id="iconWrapper" className="text-md min-w-[4rem] relative">
@@ -17,13 +17,9 @@ const DroneIcon: React.FC = () => (
     </div>
 );
 
-type NavDesktopProps = {
-    setNavDesktopWidth: React.Dispatch<React.SetStateAction<number>>;
-};
-
-export const NavDesktop: React.FC<NavDesktopProps> = ({
-    setNavDesktopWidth,
-}) => {
+export const NavDesktop: React.FC = () => {
+    const { setNavDesktopWidth } = useLayout();
+    const { links } = useData();
     const [navRef, { width: navWidth }] = useMeasure<HTMLDivElement>();
     setNavDesktopWidth(navWidth + 20);
 
@@ -47,17 +43,20 @@ export const NavDesktop: React.FC<NavDesktopProps> = ({
 };
 
 export const NavMobile: React.FC = () => {
+    const { openMobileNav } = useLayout();
     return (
         <div className="flex justify-between w-full mx-4">
             <DroneIcon />
-            <Hamburger className="text-2xl" />
+            <div onClick={openMobileNav}>
+                <Hamburger className="text-2xl" />
+            </div>
         </div>
     );
 };
 
 export const Header: React.FC = () => {
     const windowSize = useWindowSize();
-    const [navDesktopWidth, setNavDesktopWidth] = useState(20);
+    const { navDesktopWidth, setNavDesktopWidth } = useLayout();
 
     return (
         <div
@@ -67,7 +66,7 @@ export const Header: React.FC = () => {
             {navDesktopWidth > windowSize.width ? (
                 <NavMobile />
             ) : (
-                <NavDesktop setNavDesktopWidth={setNavDesktopWidth} />
+                <NavDesktop />
             )}
         </div>
     );

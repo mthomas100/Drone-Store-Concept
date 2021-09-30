@@ -7,6 +7,8 @@ import { ApolloProvider } from "@apollo/client";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { Hydrate } from "react-query/hydration";
 import { Page } from "components";
+import { LayoutStateProvider } from "lib/layoutState";
+import { DataStateProvider } from "lib/dataState";
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
     const apolloClient = initializeApollo();
@@ -16,9 +18,13 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
             <ApolloProvider client={apolloClient}>
                 <QueryClientProvider client={queryClient}>
                     <Hydrate state={pageProps.dehydratedState}>
-                        <Page>
-                            <Component {...pageProps} />
-                        </Page>
+                        <DataStateProvider>
+                            <LayoutStateProvider>
+                                <Page>
+                                    <Component {...pageProps} />
+                                </Page>
+                            </LayoutStateProvider>
+                        </DataStateProvider>
                     </Hydrate>
                 </QueryClientProvider>
             </ApolloProvider>

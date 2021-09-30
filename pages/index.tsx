@@ -15,7 +15,7 @@ import {
 const Home: React.FC = () => {
     return (
         <Container>
-            {/* <MobileNav /> */}
+            <MobileNav />
             <Header />
             <Main />
             <Cards />
