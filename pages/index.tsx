@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { GetStaticProps } from "next";
+import { MarketingCards } from "../generated/apolloComponents";
 
 import {
     Container,
@@ -34,9 +35,9 @@ const Home: React.FC = (props) => {
 
 export default Home;
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: MarketingCards = async () => {
     console.log("getStaticProps");
-    const { data } = await createApolloClient.query({
+    const { data } = await createApolloClient.query<MarketingCards>({
         query: gql`
             query ALL_CATEGORIES_QUERY {
                 marketingCards {
