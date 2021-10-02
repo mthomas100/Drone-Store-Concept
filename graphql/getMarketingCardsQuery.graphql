@@ -1,9 +1,0 @@
-query {
-    marketingCards {
-        header
-        description
-        image {
-            url
-        }
-    }
-}

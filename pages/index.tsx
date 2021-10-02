@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { GetStaticProps } from "next";
-import { MarketingCards } from "../generated/apolloComponents";
 
 import {
     Container,
@@ -16,9 +15,14 @@ import {
 import gql from "graphql-tag";
 import createApolloClient from "@services/graphql";
 import client from "../lib/apollo-client";
+import { MarketingCards, marketingCardsQuery } from "graphql/marketingCards";
 
-const Home: React.FC = (props) => {
-    console.log(props);
+const Home: React.FC<{ marketingCards: MarketingCards[] }> = ({
+    marketingCards,
+}) => {
+    {
+        marketingCards.map((card) => console.log(card.header));
+    }
     return (
         <Container>
             <MobileNav />
@@ -35,25 +39,14 @@ const Home: React.FC = (props) => {
 
 export default Home;
 
-export const getStaticProps: MarketingCards = async () => {
-    console.log("getStaticProps");
-    const { data } = await createApolloClient.query<MarketingCards>({
-        query: gql`
-            query ALL_CATEGORIES_QUERY {
-                marketingCards {
-                    header
-                    description
-                    image {
-                        url
-                    }
-                }
-            }
-        `,
+export const getStaticProps: GetStaticProps = async () => {
+    const { data } = await createApolloClient.query({
+        query: marketingCardsQuery,
     });
 
     return {
         props: {
-            data,
+            marketingCards: data.marketingCards,
         },
     };
 };
