@@ -12,26 +12,40 @@ import {
     Main,
     MobileNav,
 } from "components";
-import gql from "graphql-tag";
 import createApolloClient from "@services/graphql";
-import client from "../lib/apollo-client";
-import { MarketingCards, marketingCardsQuery } from "graphql/marketingCards";
+import {
+    MarketingCardsTypes,
+    MARKETING_CARDS_QUERY,
+    ProductsTypes,
+    PRODUCTS_QUERY,
+    SellingPointsTypes,
+    SELLING_POINT_QUERY,
+    TestimonialsTypes,
+    TESTIMONIALS_QUERY,
+} from "graphql/queries";
 
-const Home: React.FC<{ marketingCards: MarketingCards[] }> = ({
+type gqlProps = {
+    marketingCards: MarketingCardsTypes[];
+    products: ProductsTypes[];
+    sellingPoint: SellingPointsTypes;
+    testimonials: TestimonialsTypes[];
+};
+
+const Home: React.FC<gqlProps> = ({
     marketingCards,
+    products,
+    sellingPoint,
+    testimonials,
 }) => {
-    {
-        marketingCards.map((card) => console.log(card.header));
-    }
     return (
         <Container>
             <MobileNav />
             <Header />
             <Main />
-            <Cards />
-            <SellingPoints />
-            <NewProducts />
-            <Testimonials />
+            <Cards marketingCards={marketingCards} />
+            <SellingPoints sellingPoint={sellingPoint} />
+            <NewProducts products={products} />
+            <Testimonials testimonials={testimonials} />
             <Footer />
         </Container>
     );
@@ -40,13 +54,30 @@ const Home: React.FC<{ marketingCards: MarketingCards[] }> = ({
 export default Home;
 
 export const getStaticProps: GetStaticProps = async () => {
-    const { data } = await createApolloClient.query({
-        query: marketingCardsQuery,
+    /* eslint-disable */
+    const { data: { marketingCards }} = await createApolloClient.query({
+        query: MARKETING_CARDS_QUERY,
     });
+    
+    const { data: { products }} = await createApolloClient.query({
+        query: PRODUCTS_QUERY,
+    });
+
+    const { data: { sellingPoint }} = await createApolloClient.query({
+        query: SELLING_POINT_QUERY,
+    });
+
+    const { data: { testimonials }} = await createApolloClient.query({
+        query: TESTIMONIALS_QUERY,
+    });
+    /* eslint-enable */
 
     return {
         props: {
-            marketingCards: data.marketingCards,
+            marketingCards,
+            products,
+            sellingPoint,
+            testimonials,
         },
     };
 };

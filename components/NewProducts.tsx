@@ -1,3 +1,4 @@
+import { Products } from "generated/apolloComponents";
 import Image from "next/image";
 
 type CardTypes = {
@@ -44,7 +45,11 @@ const Card: React.FC<CardTypes> = ({
     );
 };
 
-export const NewProducts: React.FC = () => {
+type NewProductsTypes = {
+    products: Products[];
+};
+
+export const NewProducts: React.FC<NewProductsTypes> = ({ products }) => {
     return (
         <>
             <div id="info" className="bg-white pt-12">
@@ -72,30 +77,15 @@ export const NewProducts: React.FC = () => {
             </div>
             <div className="w-full">
                 <div className="bg-white flex flex-col gap-6 sm:flex-row justify-between items-center sm:items-stretch px-5 py-10 overflow-x-scroll">
-                    <Card
-                        imageUrl="/images/miniDrone.png"
-                        title="Mini Drone"
-                        description="Powerful camera drone at an affordable price range. Camera up to 4K resolution, optimize shots automatically."
-                        buttonColor="bg-indigo-500"
-                    />
-                    <Card
-                        imageUrl="/images/droneLight.png"
-                        title="Drone Light"
-                        description="Drone light is every creators dream. Powerful camera drone at an affordable price range."
-                        buttonColor="bg-green-500"
-                    />
-                    <Card
-                        imageUrl="/images/phantomDrone.png"
-                        title="Phantom Drone"
-                        description="Inspired by phantom, drone can move faster and quickly like a ghost. Focus on speed so you can investigate environtment quickly."
-                        buttonColor="bg-indigo-500"
-                    />
-                    <Card
-                        imageUrl="/images/miniDrone.png"
-                        title="Mini Drone"
-                        description="Powerful camera drone at an affordable price range. Camera up to 4K resolution, optimize shots automatically."
-                        buttonColor="bg-green-500"
-                    />
+                    {products.map((product) => (
+                        <Card
+                            key={product.id}
+                            title={product.name}
+                            description={product.description}
+                            imageUrl={product.image.url}
+                            buttonColor={product.buttonColor}
+                        />
+                    ))}
                 </div>
             </div>
         </>

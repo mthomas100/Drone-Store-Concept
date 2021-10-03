@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import { MarketingCards } from "generated/apolloComponents";
 
 type CardProps = {
     title: string;
@@ -36,7 +37,7 @@ const Card: React.FC<CardProps> = ({
 
             <Image
                 src={imageUrl}
-                alt="drone flying on beach"
+                alt="drone picture]"
                 layout="fill"
                 objectFit="cover"
                 objectPosition="50% 70%"
@@ -47,25 +48,25 @@ const Card: React.FC<CardProps> = ({
     );
 };
 
-export const Cards: React.FC = () => {
+type CardsProps = {
+    marketingCards: MarketingCards[];
+};
+
+export const Cards: React.FC<CardsProps> = ({ marketingCards }) => {
+    console.log(marketingCards);
     return (
         <div className="flex-1 container max-w-screen-lg mx-auto py-3 bg-black">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <Card
-                    title="Ultra Light"
-                    titleColor="text-gray-900"
-                    description="Drone move faster with weighing component under 200 g"
-                    descriptionColor="text-gray-500"
-                    imageUrl="/images/beachDrone.png"
-                />
-                <Card
-                    title="Best Resolution"
-                    titleColor="text-gray-100"
-                    description="Take a beautiful view with best camera
-                    up to 4K Camera Resolution"
-                    descriptionColor="text-gray-100"
-                    imageUrl="/images/boat.png"
-                />
+                {marketingCards.map((marketingCard) => (
+                    <Card
+                        key={marketingCard.id}
+                        title={marketingCard.header}
+                        titleColor={marketingCard.headerColor}
+                        description={marketingCard.description}
+                        descriptionColor={marketingCard.descriptionColor}
+                        imageUrl={marketingCard.image.url}
+                    />
+                ))}
             </div>
         </div>
     );

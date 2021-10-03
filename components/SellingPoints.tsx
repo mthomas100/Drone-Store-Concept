@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { useWindowSize } from "react-use";
+import { SellingPoints as SellingPointsTypes } from "generated/apolloComponents";
 
 const specificationsArr = [
     { spec: "4K", description: "Camera Resolution" },
@@ -37,7 +38,13 @@ const Specifications: React.FC<SpecificationProps> = ({
     );
 };
 
-export const SellingPoints: React.FC = () => {
+type SellingPointsProps = {
+    sellingPoint: SellingPointsTypes;
+};
+
+export const SellingPoints: React.FC<SellingPointsProps> = ({
+    sellingPoint,
+}) => {
     return (
         <div
             id="sellingPointsWrapper"
@@ -62,12 +69,10 @@ export const SellingPoints: React.FC = () => {
                 </div>
                 <div className="max-w-full sm:max-w-[60%] mx-auto px-6 text-center">
                     <div className="text-3xl font-semibold tracking-wider w-auto">
-                        Why Drone Light?
+                        {sellingPoint.header}
                     </div>
                     <div className="text-lg leading-loose font-extralight w-auto max-w-[24rem] mx-auto py-8">
-                        We provide a best self drone easy to use and operate.
-                        With auto pilot, the device will take a beautiful view
-                        for the best of flying operation.
+                        {sellingPoint.description}
                     </div>
                     <div className="flex flex-row flex-wrap justify-center">
                         <div className="flex flex-row justify-between ">
@@ -77,8 +82,16 @@ export const SellingPoints: React.FC = () => {
                                         return (
                                             <Specifications
                                                 key={i}
-                                                spec={spec}
-                                                description={description}
+                                                spec={
+                                                    sellingPoint.specifications[
+                                                        i
+                                                    ].header
+                                                }
+                                                description={
+                                                    sellingPoint.specifications[
+                                                        i
+                                                    ].description
+                                                }
                                             />
                                         );
                                     }
@@ -92,8 +105,16 @@ export const SellingPoints: React.FC = () => {
                                         return (
                                             <Specifications
                                                 key={i}
-                                                spec={spec}
-                                                description={description}
+                                                spec={
+                                                    sellingPoint.specifications[
+                                                        i
+                                                    ].header
+                                                }
+                                                description={
+                                                    sellingPoint.specifications[
+                                                        i
+                                                    ].description
+                                                }
                                             />
                                         );
                                     }

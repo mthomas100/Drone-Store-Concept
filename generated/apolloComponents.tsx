@@ -4,6 +4,7 @@ export type Maybe<T> = T | null;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
 export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
 export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
+const defaultOptions =  {}
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: string;
@@ -31,6 +32,18 @@ export type AdminUser = {
   username?: Maybe<Scalars['String']>;
   firstname: Scalars['String'];
   lastname: Scalars['String'];
+};
+
+export type ComponentSpecificationSpecification = {
+  __typename?: 'ComponentSpecificationSpecification';
+  id: Scalars['ID'];
+  header: Scalars['String'];
+  description: Scalars['String'];
+};
+
+export type ComponentSpecificationSpecificationInput = {
+  header: Scalars['String'];
+  description: Scalars['String'];
 };
 
 
@@ -87,6 +100,8 @@ export type MarketingCardInput = {
   header: Scalars['String'];
   description: Scalars['String'];
   image?: Maybe<Scalars['ID']>;
+  headerColor?: Maybe<Scalars['String']>;
+  descriptionColor?: Maybe<Scalars['String']>;
   published_at?: Maybe<Scalars['DateTime']>;
   created_by?: Maybe<Scalars['ID']>;
   updated_by?: Maybe<Scalars['ID']>;
@@ -100,6 +115,8 @@ export type MarketingCards = {
   header: Scalars['String'];
   description: Scalars['String'];
   image?: Maybe<UploadFile>;
+  headerColor?: Maybe<Scalars['String']>;
+  descriptionColor?: Maybe<Scalars['String']>;
   published_at?: Maybe<Scalars['DateTime']>;
 };
 
@@ -128,8 +145,20 @@ export type MarketingCardsConnectionDescription = {
   connection?: Maybe<MarketingCardsConnection>;
 };
 
+export type MarketingCardsConnectionDescriptionColor = {
+  __typename?: 'MarketingCardsConnectionDescriptionColor';
+  key?: Maybe<Scalars['String']>;
+  connection?: Maybe<MarketingCardsConnection>;
+};
+
 export type MarketingCardsConnectionHeader = {
   __typename?: 'MarketingCardsConnectionHeader';
+  key?: Maybe<Scalars['String']>;
+  connection?: Maybe<MarketingCardsConnection>;
+};
+
+export type MarketingCardsConnectionHeaderColor = {
+  __typename?: 'MarketingCardsConnectionHeaderColor';
   key?: Maybe<Scalars['String']>;
   connection?: Maybe<MarketingCardsConnection>;
 };
@@ -166,10 +195,12 @@ export type MarketingCardsGroupBy = {
   header?: Maybe<Array<Maybe<MarketingCardsConnectionHeader>>>;
   description?: Maybe<Array<Maybe<MarketingCardsConnectionDescription>>>;
   image?: Maybe<Array<Maybe<MarketingCardsConnectionImage>>>;
+  headerColor?: Maybe<Array<Maybe<MarketingCardsConnectionHeaderColor>>>;
+  descriptionColor?: Maybe<Array<Maybe<MarketingCardsConnectionDescriptionColor>>>;
   published_at?: Maybe<Array<Maybe<MarketingCardsConnectionPublished_At>>>;
 };
 
-export type Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | MarketingCards | MarketingCardsConnection | MarketingCardsAggregator | MarketingCardsGroupBy | MarketingCardsConnectionId | MarketingCardsConnectionCreated_At | MarketingCardsConnectionUpdated_At | MarketingCardsConnectionHeader | MarketingCardsConnectionDescription | MarketingCardsConnectionImage | MarketingCardsConnectionPublished_At | CreateMarketingCardPayload | UpdateMarketingCardPayload | DeleteMarketingCardPayload | Products | ProductsConnection | ProductsAggregator | ProductsGroupBy | ProductsConnectionId | ProductsConnectionCreated_At | ProductsConnectionUpdated_At | ProductsConnectionName | ProductsConnectionDescription | ProductsConnectionImage | ProductsConnectionPublished_At | CreateProductPayload | UpdateProductPayload | DeleteProductPayload | Testimonials | TestimonialsConnection | TestimonialsAggregator | TestimonialsGroupBy | TestimonialsConnectionId | TestimonialsConnectionCreated_At | TestimonialsConnectionUpdated_At | TestimonialsConnectionTestimonial | TestimonialsConnectionName | TestimonialsConnectionTitle | TestimonialsConnectionPublished_At | CreateTestimonialPayload | UpdateTestimonialPayload | DeleteTestimonialPayload | I18NLocale | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnectionCreated_At | UploadFileConnectionUpdated_At | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_Metadata | DeleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | CreateRolePayload | UpdateRolePayload | DeleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnectionCreated_At | UsersPermissionsUserConnectionUpdated_At | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | CreateUserPayload | UpdateUserPayload | DeleteUserPayload;
+export type Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | MarketingCards | MarketingCardsConnection | MarketingCardsAggregator | MarketingCardsGroupBy | MarketingCardsConnectionId | MarketingCardsConnectionCreated_At | MarketingCardsConnectionUpdated_At | MarketingCardsConnectionHeader | MarketingCardsConnectionDescription | MarketingCardsConnectionImage | MarketingCardsConnectionHeaderColor | MarketingCardsConnectionDescriptionColor | MarketingCardsConnectionPublished_At | CreateMarketingCardPayload | UpdateMarketingCardPayload | DeleteMarketingCardPayload | Products | ProductsConnection | ProductsAggregator | ProductsGroupBy | ProductsConnectionId | ProductsConnectionCreated_At | ProductsConnectionUpdated_At | ProductsConnectionName | ProductsConnectionDescription | ProductsConnectionImage | ProductsConnectionButtonColor | ProductsConnectionPublished_At | CreateProductPayload | UpdateProductPayload | DeleteProductPayload | SellingPoints | UpdateSellingPointPayload | DeleteSellingPointPayload | Testimonials | TestimonialsConnection | TestimonialsAggregator | TestimonialsGroupBy | TestimonialsConnectionId | TestimonialsConnectionCreated_At | TestimonialsConnectionUpdated_At | TestimonialsConnectionTestimonial | TestimonialsConnectionName | TestimonialsConnectionTitle | TestimonialsConnectionImage | TestimonialsConnectionPublished_At | CreateTestimonialPayload | UpdateTestimonialPayload | DeleteTestimonialPayload | I18NLocale | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnectionCreated_At | UploadFileConnectionUpdated_At | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_Metadata | DeleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | CreateRolePayload | UpdateRolePayload | DeleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnectionCreated_At | UsersPermissionsUserConnectionUpdated_At | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | CreateUserPayload | UpdateUserPayload | DeleteUserPayload | ComponentSpecificationSpecification;
 
 export type Mutation = {
   __typename?: 'Mutation';
@@ -179,6 +210,8 @@ export type Mutation = {
   createProduct?: Maybe<CreateProductPayload>;
   updateProduct?: Maybe<UpdateProductPayload>;
   deleteProduct?: Maybe<DeleteProductPayload>;
+  updateSellingPoint?: Maybe<UpdateSellingPointPayload>;
+  deleteSellingPoint?: Maybe<DeleteSellingPointPayload>;
   createTestimonial?: Maybe<CreateTestimonialPayload>;
   updateTestimonial?: Maybe<UpdateTestimonialPayload>;
   deleteTestimonial?: Maybe<DeleteTestimonialPayload>;
@@ -234,6 +267,11 @@ export type MutationUpdateProductArgs = {
 
 export type MutationDeleteProductArgs = {
   input?: Maybe<DeleteProductInput>;
+};
+
+
+export type MutationUpdateSellingPointArgs = {
+  input?: Maybe<UpdateSellingPointInput>;
 };
 
 
@@ -342,6 +380,7 @@ export type ProductInput = {
   name: Scalars['String'];
   description: Scalars['String'];
   image?: Maybe<Scalars['ID']>;
+  buttonColor?: Maybe<Scalars['String']>;
   published_at?: Maybe<Scalars['DateTime']>;
   created_by?: Maybe<Scalars['ID']>;
   updated_by?: Maybe<Scalars['ID']>;
@@ -355,6 +394,7 @@ export type Products = {
   name: Scalars['String'];
   description: Scalars['String'];
   image?: Maybe<UploadFile>;
+  buttonColor?: Maybe<Scalars['String']>;
   published_at?: Maybe<Scalars['DateTime']>;
 };
 
@@ -369,6 +409,12 @@ export type ProductsConnection = {
   values?: Maybe<Array<Maybe<Products>>>;
   groupBy?: Maybe<ProductsGroupBy>;
   aggregate?: Maybe<ProductsAggregator>;
+};
+
+export type ProductsConnectionButtonColor = {
+  __typename?: 'ProductsConnectionButtonColor';
+  key?: Maybe<Scalars['String']>;
+  connection?: Maybe<ProductsConnection>;
 };
 
 export type ProductsConnectionCreated_At = {
@@ -421,6 +467,7 @@ export type ProductsGroupBy = {
   name?: Maybe<Array<Maybe<ProductsConnectionName>>>;
   description?: Maybe<Array<Maybe<ProductsConnectionDescription>>>;
   image?: Maybe<Array<Maybe<ProductsConnectionImage>>>;
+  buttonColor?: Maybe<Array<Maybe<ProductsConnectionButtonColor>>>;
   published_at?: Maybe<Array<Maybe<ProductsConnectionPublished_At>>>;
 };
 
@@ -437,6 +484,7 @@ export type Query = {
   product?: Maybe<Products>;
   products?: Maybe<Array<Maybe<Products>>>;
   productsConnection?: Maybe<ProductsConnection>;
+  sellingPoint?: Maybe<SellingPoints>;
   testimonial?: Maybe<Testimonials>;
   testimonials?: Maybe<Array<Maybe<Testimonials>>>;
   testimonialsConnection?: Maybe<TestimonialsConnection>;
@@ -496,6 +544,11 @@ export type QueryProductsConnectionArgs = {
   limit?: Maybe<Scalars['Int']>;
   start?: Maybe<Scalars['Int']>;
   where?: Maybe<Scalars['JSON']>;
+};
+
+
+export type QuerySellingPointArgs = {
+  publicationState?: Maybe<PublicationState>;
 };
 
 
@@ -594,10 +647,33 @@ export type RoleInput = {
   updated_by?: Maybe<Scalars['ID']>;
 };
 
+export type SellingPointInput = {
+  header: Scalars['String'];
+  description: Scalars['String'];
+  specifications?: Maybe<Array<Maybe<ComponentSpecificationSpecificationInput>>>;
+  image?: Maybe<Scalars['ID']>;
+  published_at?: Maybe<Scalars['DateTime']>;
+  created_by?: Maybe<Scalars['ID']>;
+  updated_by?: Maybe<Scalars['ID']>;
+};
+
+export type SellingPoints = {
+  __typename?: 'SellingPoints';
+  id: Scalars['ID'];
+  created_at: Scalars['DateTime'];
+  updated_at: Scalars['DateTime'];
+  header: Scalars['String'];
+  description: Scalars['String'];
+  specifications?: Maybe<Array<Maybe<ComponentSpecificationSpecification>>>;
+  image?: Maybe<UploadFile>;
+  published_at?: Maybe<Scalars['DateTime']>;
+};
+
 export type TestimonialInput = {
   testimonial: Scalars['String'];
   name: Scalars['String'];
   title: Scalars['String'];
+  image?: Maybe<Scalars['ID']>;
   published_at?: Maybe<Scalars['DateTime']>;
   created_by?: Maybe<Scalars['ID']>;
   updated_by?: Maybe<Scalars['ID']>;
@@ -611,6 +687,7 @@ export type Testimonials = {
   testimonial: Scalars['String'];
   name: Scalars['String'];
   title: Scalars['String'];
+  image?: Maybe<UploadFile>;
   published_at?: Maybe<Scalars['DateTime']>;
 };
 
@@ -635,6 +712,12 @@ export type TestimonialsConnectionCreated_At = {
 
 export type TestimonialsConnectionId = {
   __typename?: 'TestimonialsConnectionId';
+  key?: Maybe<Scalars['ID']>;
+  connection?: Maybe<TestimonialsConnection>;
+};
+
+export type TestimonialsConnectionImage = {
+  __typename?: 'TestimonialsConnectionImage';
   key?: Maybe<Scalars['ID']>;
   connection?: Maybe<TestimonialsConnection>;
 };
@@ -677,6 +760,7 @@ export type TestimonialsGroupBy = {
   testimonial?: Maybe<Array<Maybe<TestimonialsConnectionTestimonial>>>;
   name?: Maybe<Array<Maybe<TestimonialsConnectionName>>>;
   title?: Maybe<Array<Maybe<TestimonialsConnectionTitle>>>;
+  image?: Maybe<Array<Maybe<TestimonialsConnectionImage>>>;
   published_at?: Maybe<Array<Maybe<TestimonialsConnectionPublished_At>>>;
 };
 
@@ -1191,6 +1275,11 @@ export type DeleteRolePayload = {
   role?: Maybe<UsersPermissionsRole>;
 };
 
+export type DeleteSellingPointPayload = {
+  __typename?: 'deleteSellingPointPayload';
+  sellingPoint?: Maybe<SellingPoints>;
+};
+
 export type DeleteTestimonialInput = {
   where?: Maybe<InputId>;
 };
@@ -1207,6 +1296,12 @@ export type DeleteUserInput = {
 export type DeleteUserPayload = {
   __typename?: 'deleteUserPayload';
   user?: Maybe<UsersPermissionsUser>;
+};
+
+export type EditComponentSpecificationSpecificationInput = {
+  id?: Maybe<Scalars['ID']>;
+  header?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
 };
 
 export type EditFileInput = {
@@ -1240,6 +1335,8 @@ export type EditMarketingCardInput = {
   header?: Maybe<Scalars['String']>;
   description?: Maybe<Scalars['String']>;
   image?: Maybe<Scalars['ID']>;
+  headerColor?: Maybe<Scalars['String']>;
+  descriptionColor?: Maybe<Scalars['String']>;
   published_at?: Maybe<Scalars['DateTime']>;
   created_by?: Maybe<Scalars['ID']>;
   updated_by?: Maybe<Scalars['ID']>;
@@ -1249,6 +1346,7 @@ export type EditProductInput = {
   name?: Maybe<Scalars['String']>;
   description?: Maybe<Scalars['String']>;
   image?: Maybe<Scalars['ID']>;
+  buttonColor?: Maybe<Scalars['String']>;
   published_at?: Maybe<Scalars['DateTime']>;
   created_by?: Maybe<Scalars['ID']>;
   updated_by?: Maybe<Scalars['ID']>;
@@ -1264,10 +1362,21 @@ export type EditRoleInput = {
   updated_by?: Maybe<Scalars['ID']>;
 };
 
+export type EditSellingPointInput = {
+  header?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
+  specifications?: Maybe<Array<Maybe<EditComponentSpecificationSpecificationInput>>>;
+  image?: Maybe<Scalars['ID']>;
+  published_at?: Maybe<Scalars['DateTime']>;
+  created_by?: Maybe<Scalars['ID']>;
+  updated_by?: Maybe<Scalars['ID']>;
+};
+
 export type EditTestimonialInput = {
   testimonial?: Maybe<Scalars['String']>;
   name?: Maybe<Scalars['String']>;
   title?: Maybe<Scalars['String']>;
+  image?: Maybe<Scalars['ID']>;
   published_at?: Maybe<Scalars['DateTime']>;
   created_by?: Maybe<Scalars['ID']>;
   updated_by?: Maybe<Scalars['ID']>;
@@ -1317,6 +1426,15 @@ export type UpdateRolePayload = {
   role?: Maybe<UsersPermissionsRole>;
 };
 
+export type UpdateSellingPointInput = {
+  data?: Maybe<EditSellingPointInput>;
+};
+
+export type UpdateSellingPointPayload = {
+  __typename?: 'updateSellingPointPayload';
+  sellingPoint?: Maybe<SellingPoints>;
+};
+
 export type UpdateTestimonialInput = {
   where?: Maybe<InputId>;
   data?: Maybe<EditTestimonialInput>;
@@ -1337,32 +1455,252 @@ export type UpdateUserPayload = {
   user?: Maybe<UsersPermissionsUser>;
 };
 
-export type MarketingCardsQueryVariables = Exact<{ [key: string]: never; }>;
+export type Marketing_Cards_QueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type MarketingCardsQuery = (
+export type Marketing_Cards_QueryQuery = (
   { __typename?: 'Query' }
   & { marketingCards?: Maybe<Array<Maybe<(
-    { __typename?: 'MarketingCards' }
-    & Pick<MarketingCards, 'id' | 'header' | 'description'>
+    { __typename: 'MarketingCards' }
+    & Pick<MarketingCards, 'id' | 'created_at' | 'updated_at' | 'header' | 'headerColor' | 'description' | 'descriptionColor' | 'published_at'>
     & { image?: Maybe<(
       { __typename?: 'UploadFile' }
-      & Pick<UploadFile, 'url'>
+      & Pick<UploadFile, 'id' | 'url'>
+    )> }
+  )>>> }
+);
+
+export type Products_QueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type Products_QueryQuery = (
+  { __typename?: 'Query' }
+  & { products?: Maybe<Array<Maybe<(
+    { __typename: 'Products' }
+    & Pick<Products, 'id' | 'created_at' | 'updated_at' | 'name' | 'buttonColor' | 'description' | 'published_at'>
+    & { image?: Maybe<(
+      { __typename?: 'UploadFile' }
+      & Pick<UploadFile, 'url' | 'id'>
+    )> }
+  )>>> }
+);
+
+export type Selling_Point_QueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type Selling_Point_QueryQuery = (
+  { __typename?: 'Query' }
+  & { sellingPoint?: Maybe<(
+    { __typename: 'SellingPoints' }
+    & Pick<SellingPoints, 'id' | 'created_at' | 'updated_at' | 'header' | 'description' | 'published_at'>
+    & { specifications?: Maybe<Array<Maybe<(
+      { __typename?: 'ComponentSpecificationSpecification' }
+      & Pick<ComponentSpecificationSpecification, 'id' | 'header' | 'description'>
+    )>>>, image?: Maybe<(
+      { __typename?: 'UploadFile' }
+      & Pick<UploadFile, 'url' | 'id'>
+    )> }
+  )> }
+);
+
+export type Testimonials_QueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type Testimonials_QueryQuery = (
+  { __typename?: 'Query' }
+  & { testimonials?: Maybe<Array<Maybe<(
+    { __typename: 'Testimonials' }
+    & Pick<Testimonials, 'id' | 'created_at' | 'updated_at' | 'testimonial' | 'name' | 'title' | 'published_at'>
+    & { image?: Maybe<(
+      { __typename?: 'UploadFile' }
+      & Pick<UploadFile, 'url' | 'id'>
     )> }
   )>>> }
 );
 
 
-export const MarketingCardsDocument = gql`
-    query MarketingCards {
+export const Marketing_Cards_QueryDocument = gql`
+    query MARKETING_CARDS_QUERY {
   marketingCards {
+    __typename
     id
+    created_at
+    updated_at
     header
+    headerColor
     description
+    descriptionColor
     image {
+      id
       url
     }
+    published_at
   }
 }
     `;
-export type MarketingCardsQueryResult = Apollo.QueryResult<MarketingCardsQuery, MarketingCardsQueryVariables>;
+
+/**
+ * __useMarketing_Cards_QueryQuery__
+ *
+ * To run a query within a React component, call `useMarketing_Cards_QueryQuery` and pass it any options that fit your needs.
+ * When your component renders, `useMarketing_Cards_QueryQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useMarketing_Cards_QueryQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useMarketing_Cards_QueryQuery(baseOptions?: Apollo.QueryHookOptions<Marketing_Cards_QueryQuery, Marketing_Cards_QueryQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<Marketing_Cards_QueryQuery, Marketing_Cards_QueryQueryVariables>(Marketing_Cards_QueryDocument, options);
+      }
+export function useMarketing_Cards_QueryLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<Marketing_Cards_QueryQuery, Marketing_Cards_QueryQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<Marketing_Cards_QueryQuery, Marketing_Cards_QueryQueryVariables>(Marketing_Cards_QueryDocument, options);
+        }
+export type Marketing_Cards_QueryQueryHookResult = ReturnType<typeof useMarketing_Cards_QueryQuery>;
+export type Marketing_Cards_QueryLazyQueryHookResult = ReturnType<typeof useMarketing_Cards_QueryLazyQuery>;
+export type Marketing_Cards_QueryQueryResult = Apollo.QueryResult<Marketing_Cards_QueryQuery, Marketing_Cards_QueryQueryVariables>;
+export const Products_QueryDocument = gql`
+    query PRODUCTS_QUERY {
+  products {
+    __typename
+    id
+    created_at
+    updated_at
+    name
+    buttonColor
+    description
+    image {
+      url
+      id
+    }
+    published_at
+  }
+}
+    `;
+
+/**
+ * __useProducts_QueryQuery__
+ *
+ * To run a query within a React component, call `useProducts_QueryQuery` and pass it any options that fit your needs.
+ * When your component renders, `useProducts_QueryQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useProducts_QueryQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useProducts_QueryQuery(baseOptions?: Apollo.QueryHookOptions<Products_QueryQuery, Products_QueryQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<Products_QueryQuery, Products_QueryQueryVariables>(Products_QueryDocument, options);
+      }
+export function useProducts_QueryLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<Products_QueryQuery, Products_QueryQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<Products_QueryQuery, Products_QueryQueryVariables>(Products_QueryDocument, options);
+        }
+export type Products_QueryQueryHookResult = ReturnType<typeof useProducts_QueryQuery>;
+export type Products_QueryLazyQueryHookResult = ReturnType<typeof useProducts_QueryLazyQuery>;
+export type Products_QueryQueryResult = Apollo.QueryResult<Products_QueryQuery, Products_QueryQueryVariables>;
+export const Selling_Point_QueryDocument = gql`
+    query SELLING_POINT_QUERY {
+  sellingPoint {
+    __typename
+    id
+    created_at
+    updated_at
+    header
+    description
+    specifications {
+      id
+      header
+      description
+    }
+    image {
+      url
+      id
+    }
+    published_at
+  }
+}
+    `;
+
+/**
+ * __useSelling_Point_QueryQuery__
+ *
+ * To run a query within a React component, call `useSelling_Point_QueryQuery` and pass it any options that fit your needs.
+ * When your component renders, `useSelling_Point_QueryQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useSelling_Point_QueryQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useSelling_Point_QueryQuery(baseOptions?: Apollo.QueryHookOptions<Selling_Point_QueryQuery, Selling_Point_QueryQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<Selling_Point_QueryQuery, Selling_Point_QueryQueryVariables>(Selling_Point_QueryDocument, options);
+      }
+export function useSelling_Point_QueryLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<Selling_Point_QueryQuery, Selling_Point_QueryQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<Selling_Point_QueryQuery, Selling_Point_QueryQueryVariables>(Selling_Point_QueryDocument, options);
+        }
+export type Selling_Point_QueryQueryHookResult = ReturnType<typeof useSelling_Point_QueryQuery>;
+export type Selling_Point_QueryLazyQueryHookResult = ReturnType<typeof useSelling_Point_QueryLazyQuery>;
+export type Selling_Point_QueryQueryResult = Apollo.QueryResult<Selling_Point_QueryQuery, Selling_Point_QueryQueryVariables>;
+export const Testimonials_QueryDocument = gql`
+    query TESTIMONIALS_QUERY {
+  testimonials {
+    __typename
+    id
+    created_at
+    updated_at
+    testimonial
+    name
+    title
+    image {
+      url
+      id
+    }
+    published_at
+  }
+}
+    `;
+
+/**
+ * __useTestimonials_QueryQuery__
+ *
+ * To run a query within a React component, call `useTestimonials_QueryQuery` and pass it any options that fit your needs.
+ * When your component renders, `useTestimonials_QueryQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useTestimonials_QueryQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useTestimonials_QueryQuery(baseOptions?: Apollo.QueryHookOptions<Testimonials_QueryQuery, Testimonials_QueryQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<Testimonials_QueryQuery, Testimonials_QueryQueryVariables>(Testimonials_QueryDocument, options);
+      }
+export function useTestimonials_QueryLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<Testimonials_QueryQuery, Testimonials_QueryQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<Testimonials_QueryQuery, Testimonials_QueryQueryVariables>(Testimonials_QueryDocument, options);
+        }
+export type Testimonials_QueryQueryHookResult = ReturnType<typeof useTestimonials_QueryQuery>;
+export type Testimonials_QueryLazyQueryHookResult = ReturnType<typeof useTestimonials_QueryLazyQuery>;
+export type Testimonials_QueryQueryResult = Apollo.QueryResult<Testimonials_QueryQuery, Testimonials_QueryQueryVariables>;
