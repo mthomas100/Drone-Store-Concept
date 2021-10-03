@@ -4,11 +4,11 @@ import Image from "next/image";
 export const Main: React.FC = () => {
     return (
         <div className="text-center font-light py-20 bg-black">
-            <div className="container mx-auto flex flex-col items-center max-w-[24rem] px-8 gap-y-4 ">
+            <div className="mx-auto flex flex-col justify-between items-center px-8 gap-y-4 w-full">
                 <h1 className="text-gray-100 text-3xl mb-2">
                     Introducing Drone Light
                 </h1>
-                <p className="text-lg text-gray-400 mb-3">
+                <p className="text-lg text-gray-400 mb-3 max-w-[5rem]">
                     Look up the sky and beautiful world with simple navigation.
                     Just record and get a lot memories to share, lightly and
                     fast like a lightning
@@ -18,7 +18,7 @@ export const Main: React.FC = () => {
                 </div>
                 <div
                     id="mainImage"
-                    className="text-md min-h-[16rem] min-w-full relative "
+                    className="text-md min-h-[16rem] sm:min-w-[24rem] min-w-full relative "
                 >
                     <Image
                         src="/images/Hero Image 1.png"

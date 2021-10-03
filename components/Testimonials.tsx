@@ -1,3 +1,4 @@
+import { TestimonialsTypes } from "graphql/queries";
 import Image from "next/image";
 
 type TestimonialCardTypes = {
@@ -15,7 +16,7 @@ const TestimonialCard: React.FC<TestimonialCardTypes> = ({
 }) => {
     return (
         <div className="rounded-md flex flex-col gap-4 min-w-[18rem] max-w-[18rem] p-5 bg-white border-2 border-gray-200 text-center">
-            <div className="flex flex-col text-sm font-light text-left items-center justify-self-start w-full h-full leading-loose tracking-wide text-gray-700">
+            <div className="flex flex-col text-sm font-light text-left items-center justify-self-start w-full h-full leading-loose tracking-wide text-gray-700 py-1">
                 {testimonial}
             </div>
             <div
@@ -42,7 +43,11 @@ const TestimonialCard: React.FC<TestimonialCardTypes> = ({
     );
 };
 
-export const Testimonials: React.FC = () => {
+type TestimonialsProps = {
+    testimonials: TestimonialsTypes[];
+};
+
+export const Testimonials: React.FC<TestimonialsProps> = ({ testimonials }) => {
     return (
         <>
             <div className="py-12 bg-white">
@@ -51,24 +56,15 @@ export const Testimonials: React.FC = () => {
                 </div>
                 <div className="w-full">
                     <div className="bg-white flex flex-col sm:flex-row gap-6 justify-between items-center sm:items-stretch px-5 py-10 overflow-x-scroll">
-                        <TestimonialCard
-                            testimonial=" With high resolution camera, picture become clear and beautiful. It’s so easy to operate drone."
-                            imageUrl="/images/testimonialpic1.png"
-                            name="Hugo Adams"
-                            position="Content Creator"
-                        />
-                        <TestimonialCard
-                            testimonial="Taking high view video become easy and faster. Battery performance really helping for making film."
-                            imageUrl="/images/testimonialpic2.png"
-                            name="Jennie Obrien"
-                            position="Director Film"
-                        />
-                        <TestimonialCard
-                            testimonial="Making video content for my trip vlog so powerful and wonderful. Love the video quality."
-                            imageUrl="/images/testimonialpic3.png"
-                            name="Lisa Millz"
-                            position="Content Creator"
-                        />
+                        {testimonials.map((item) => (
+                            <TestimonialCard
+                                key={item.id}
+                                testimonial={item.testimonial}
+                                imageUrl={item.image.url}
+                                name={item.name}
+                                position={item.title}
+                            />
+                        ))}
                     </div>
                 </div>
             </div>

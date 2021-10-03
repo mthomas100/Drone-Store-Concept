@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { MarketingCards } from "generated/apolloComponents";
+import { MarketingCardsTypes } from "graphql/queries";
 
 type CardProps = {
     title: string;
@@ -49,11 +50,10 @@ const Card: React.FC<CardProps> = ({
 };
 
 type CardsProps = {
-    marketingCards: MarketingCards[];
+    marketingCards: MarketingCardsTypes[];
 };
 
 export const Cards: React.FC<CardsProps> = ({ marketingCards }) => {
-    console.log(marketingCards);
     return (
         <div className="flex-1 container max-w-screen-lg mx-auto py-3 bg-black">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">

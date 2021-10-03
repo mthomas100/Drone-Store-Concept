@@ -1,4 +1,4 @@
-import { Products } from "generated/apolloComponents";
+import { ProductsTypes } from "graphql/queries";
 import Image from "next/image";
 
 type CardTypes = {
@@ -15,7 +15,7 @@ const Card: React.FC<CardTypes> = ({
     buttonColor,
 }) => {
     return (
-        <div className="rounded-md flex flex-col gap-4 min-w-[20rem] max-w-[20rem] p-8  bg-white border-2 border-gray-200 text-center">
+        <div className="rounded-md flex flex-col gap-4 min-w-[20rem] max-w-[20rem]  p-8  bg-white border-2 border-gray-200 text-center">
             <div
                 id="image"
                 className="min-h-[10rem] w-full relative flex flex-1"
@@ -46,7 +46,7 @@ const Card: React.FC<CardTypes> = ({
 };
 
 type NewProductsTypes = {
-    products: Products[];
+    products: ProductsTypes[];
 };
 
 export const NewProducts: React.FC<NewProductsTypes> = ({ products }) => {
@@ -55,7 +55,7 @@ export const NewProducts: React.FC<NewProductsTypes> = ({ products }) => {
             <div id="info" className="bg-white pt-12">
                 <div
                     id="header"
-                    className="flex flex-col items-center text-center"
+                    className="flex flex-col items-center text-center mb-4"
                 >
                     <div
                         id="title"

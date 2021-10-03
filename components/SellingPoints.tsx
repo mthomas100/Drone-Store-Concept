@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { useWindowSize } from "react-use";
-import { SellingPoints as SellingPointsTypes } from "generated/apolloComponents";
+import { SellingPointsTypes } from "graphql/queries";
 
 const specificationsArr = [
     { spec: "4K", description: "Camera Resolution" },
