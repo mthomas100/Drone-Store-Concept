@@ -1,19 +1,32 @@
 import { Maybe, Scalars, UploadFile } from "generated/apolloComponents";
 import gql from "graphql-tag";
 
-export type MarketingCardsTypes = {
-    __typename?: "MarketingCards";
+// export type MarketingCardsTypes = {
+//     __typename?: "MarketingCards";
+//     id: Scalars["ID"];
+//     created_at: Scalars["DateTime"];
+//     updated_at: Scalars["DateTime"];
+//     header: Scalars["String"];
+//     description: Scalars["String"];
+//     image?: Maybe<
+//         { __typename?: "UploadFile" } & Pick<UploadFile, "id" | "url">
+//     >;
+//     headerColor?: Maybe<Scalars["String"]>;
+//     descriptionColor?: Maybe<Scalars["String"]>;
+//     published_at?: Maybe<Scalars["DateTime"]>;
+// };
+
+export type MarketingCardTypes = {
+    __typename?: "MarketingCard";
     id: Scalars["ID"];
-    created_at: Scalars["DateTime"];
-    updated_at: Scalars["DateTime"];
+    _id: Scalars["ID"];
+    createdAt: Scalars["DateTime"];
+    updatedAt: Scalars["DateTime"];
     header: Scalars["String"];
     description: Scalars["String"];
-    image?: Maybe<
-        { __typename?: "UploadFile" } & Pick<UploadFile, "id" | "url">
-    >;
-    headerColor?: Maybe<Scalars["String"]>;
-    descriptionColor?: Maybe<Scalars["String"]>;
-    published_at?: Maybe<Scalars["DateTime"]>;
+    image?: Maybe<UploadFile>;
+    headerColor: Scalars["String"];
+    descriptionColor: Scalars["String"];
 };
 
 export const MARKETING_CARDS_QUERY = gql`
@@ -21,17 +34,14 @@ export const MARKETING_CARDS_QUERY = gql`
         marketingCards {
             __typename
             id
-            created_at
-            updated_at
+            _id
+            createdAt
+            updatedAt
             header
-            headerColor
             description
+            image
+            headerColor
             descriptionColor
-            image {
-                id
-                url
-            }
-            published_at
         }
     }
 `;
@@ -46,7 +56,6 @@ export type ProductsTypes = {
     image?: Maybe<
         { __typename?: "UploadFile" } & Pick<UploadFile, "id" | "url">
     >;
-    buttonColor?: Maybe<Scalars["String"]>;
     published_at?: Maybe<Scalars["DateTime"]>;
 };
 
@@ -58,7 +67,6 @@ export const PRODUCTS_QUERY = gql`
             created_at
             updated_at
             name
-            buttonColor
             description
             image {
                 url

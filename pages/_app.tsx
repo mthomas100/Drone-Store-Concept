@@ -1,6 +1,7 @@
 import React from "react";
 import { AppProps } from "next/app";
 import "tailwindcss/tailwind.css";
+import "../src/styles/tailwindGlobal.css";
 import { StyledThemeProvider } from "@definitions/styled-components";
 import { initializeApollo } from "@services/graphql";
 import { ApolloProvider } from "@apollo/client";

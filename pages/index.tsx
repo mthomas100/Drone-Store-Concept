@@ -43,9 +43,9 @@ const Home: React.FC<gqlProps> = ({
             <Header />
             <Main />
             <Cards marketingCards={marketingCards} />
-            <SellingPoints sellingPoint={sellingPoint} />
+            {/* <SellingPoints sellingPoint={sellingPoint} />
             <NewProducts products={products} />
-            <Testimonials testimonials={testimonials} />
+            <Testimonials testimonials={testimonials} /> */}
             <Footer />
         </Container>
     );
@@ -55,29 +55,31 @@ export default Home;
 
 export const getStaticProps: GetStaticProps = async () => {
     /* eslint-disable */
+
+    //TODO: error handling (+ cleaning this area up.... or coupling it with the graphql query file)
     const { data: { marketingCards }} = await createApolloClient.query({
         query: MARKETING_CARDS_QUERY,
     });
     
-    const { data: { products }} = await createApolloClient.query({
-        query: PRODUCTS_QUERY,
-    });
+    // const { data: { products }} = await createApolloClient.query({
+    //     query: PRODUCTS_QUERY,
+    // });
 
-    const { data: { sellingPoint }} = await createApolloClient.query({
-        query: SELLING_POINT_QUERY,
-    });
+    // const { data: { sellingPoint }} = await createApolloClient.query({
+    //     query: SELLING_POINT_QUERY,
+    // });
 
-    const { data: { testimonials }} = await createApolloClient.query({
-        query: TESTIMONIALS_QUERY,
-    });
+    // const { data: { testimonials }} = await createApolloClient.query({
+    //     query: TESTIMONIALS_QUERY,
+    // });
     /* eslint-enable */
 
     return {
         props: {
             marketingCards,
-            products,
-            sellingPoint,
-            testimonials,
+            // products,
+            // sellingPoint,
+            // testimonials,
         },
     };
 };
