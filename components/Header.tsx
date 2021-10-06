@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
 import { HiOutlineSearch as Search } from "react-icons/hi";
 import { GiHamburgerMenu as Hamburger } from "react-icons/gi";
 import { useWindowSize, useMeasure } from "react-use";
 import { useLayout } from "lib/layoutState";
 import { useData } from "lib/dataState";
-import { MarketingCards } from "generated/apolloComponents";
 
 const DroneIcon: React.FC = () => (
     <div id="iconWrapper" className="text-md min-w-[4rem] relative">
