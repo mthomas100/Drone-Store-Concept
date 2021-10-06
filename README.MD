@@ -39,6 +39,12 @@ The main reason why static generation was chosen was to avoid the pitfalls that 
 
 In a future ecommerce application I am to allow for the best of both worlds. The admin's preview page would be rendered live via server side rendering whereas the side of the app that the public sees would be statically gnerated. Such is the benefit of next.JS
 
+# Strapi
+
+> [Strapi](Strapi.io) is the next-gen headless CMS, open-source, javascript, enabling content-rich experiences to be created, managed and exposed to any digital device.
+
+Strapi is a tool used to quickly generate backend api's. Its name strapi is derived from -strap as in bootstrap and api... so as to bootstrap an API. As a developer concentrated primarily in front end matters I find that strapi meets most of my projects' needs. In my experience it has been a way to generate powerful backends in a way that is astonishingly uncomplicated and yet very capable. As easy as it is to manage data through the strapi provided admin UI, I have also had success performing queries and mutations on my database via graphql, my preferred way of interacting with application api's. Strapi, unlike some other headless CMS's, allows for self hosting (an important feature for me). I have hosted the backend for this application on heroku. 
+
 -------------------------------------------------------
 
 **__Other Tech Used__**
@@ -69,27 +75,6 @@ In a future ecommerce application I am to allow for the best of both worlds. The
 
 > An opinionated code formatter; Supports many languages; Integrates with most editors.
 > [Go To Documentation](https://prettier.io/docs/en/index.html)
-
-## Available Scripts
-
-### Running the development server.
-
-```bash
-    yarn dev
-```
-
-### Building for production.
-
-```bash
-    yarn build
-```
-
-### Running the production server.
-
-```bash
-    yarn start
-```
-
 
 
 
