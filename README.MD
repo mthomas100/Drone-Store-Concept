@@ -35,11 +35,35 @@ This was my first project using tailwindCSS. It is known for being a highly effe
 
 Next.js is by far the most exciting tech to come to the web development scene in recent times. Its page based routing system and ability to easily switch between server side rendering, static generation, incremental static generation, etc. make it a powerful tool for any react developer. In this project I used its static generation capabilities, as it has no real dynamic data. In theory if this project were used to bootstrap a live app, a combination of these rendering modes would be used where it necessary. 
 
-The main reason why static generation was chosen was to avoid the pitfalls that often come with hosting applications on the cheap. Heroku, where I chose to host my backend goes to sleep after a rather short time interval. This means that when someone tries to access the site after a while in which it was not accessed, they will be forced to wait several seconds for the dyno to boot up and load the page. With static generation I only need to hit the heroku (strapi) api once at build time. What about updating site content? There is a build hook enabled through strapi that triggers a rebuild of the statically generated next.js app. It takes a couple minutes for the site to go live after the changes are published by the site admin. In a future ecommerce application I am to allow for the best of both worlds. The admin's preview page would be rendered live via server side rendering whereas the side of the app that the public sees
-Another benefit of static generation is that it is incredibly fast! 
-## Getting Started
+The main reason why static generation was chosen was to avoid the pitfalls that often come with hosting applications on the cheap. Heroku, where I chose to host my backend goes to sleep after a rather short time interval. This means that when someone tries to access the site after a while in which it was not accessed, they will be forced to wait several seconds for the dyno to boot up and load the page. With static generation I only need to hit the heroku (strapi) api once at build time. What about updating site content? There is a build hook enabled through strapi that triggers a rebuild of the statically generated next.js app. It takes a couple minutes for the site to go live after the changes are published by the site admin. Beyond this build time caveat, static generation is a loved feature because of how fast loads and how well it performs for users of the site. 
 
-superplate is a Next.js all-in-one project generator. Create your project with the tools you need without spending hours on setting them up.
+In a future ecommerce application I am to allow for the best of both worlds. The admin's preview page would be rendered live via server side rendering whereas the side of the app that the public sees would be statically gnerated. Such is the benefit of next.JS
+
+**__Other Tech Used__**
+
+### **Apollo GraphQL**
+
+>>Apollo Client is a comprehensive state management library for JavaScript that enables you to manage both local and remote data with GraphQL. Use it to fetch, cache, >>and modify application data, all while automatically updating your UI.
+>>[Go To Documentation](https://www.apollographql.com/docs/react/)
+
+
+
+### **react-use**
+
+>>A Collection of useful React hooks.
+>>[Go To Documentation](https://github.com/streamich/react-use)
+
+
+### **ESLint**
+
+>> A pluggable and configurable linter tool for identifying and reporting on patterns in JavaScript. Maintain your code quality with ease.
+>> [Go To Documentation](https://eslint.org/docs/user-guide/getting-started)
+
+
+### **Prettier**
+
+>> An opinionated code formatter; Supports many languages; Integrates with most editors.
+>> [Go To Documentation](https://prettier.io/docs/en/index.html)
 
 ## Available Scripts
 
@@ -61,72 +85,8 @@ superplate is a Next.js all-in-one project generator. Create your project with t
     yarn start
 ```
 
-## Learn More
-
-To learn more about **superplate**, please check out the [Documentation](https://github.com/pankod/superplate).
 
 
-### **TailwindCSS**
-
-A utility-first CSS framework packed with classes like flex, pt-4, text-center and rotate-90 that can be composed to build any design, directly in your markup.
-
-[Go To Documentation](https://tailwindcss.com/docs)
-
-
-### **Styled Components**
-
-Utilising tagged template literals (a recent addition to JavaScript) and the power of CSS, styled-components allows you to write actual CSS code to style your components.
-
-[Go To Documentation](https://styled-components.com/docs)
-
-
-### **Styled System**
-
-Styled System is a collection of utility functions that add style props to your React components and allows you to control styles based on a global theme object with typographic scales, colors, and layout properties.
-
-[Go To Documentation](https://styled-system.com/getting-started)
-
-
-### **Apollo GraphQL**
-
-Apollo Client is a comprehensive state management library for JavaScript that enables you to manage both local and remote data with GraphQL. Use it to fetch, cache, and modify application data, all while automatically updating your UI.
-
-[Go To Documentation](https://www.apollographql.com/docs/react/)
-
-
-### **graphql-request**
-
-Minimal GraphQL client supporting Node and browsers for scripts or simple apps
-
-[Go To Documentation](https://github.com/prisma-labs/graphql-request)
-
-
-### **React Query**
-
-Hooks for fetching, caching and updating asynchronous data in React.
-
-[Go To Documentation](https://react-query.tanstack.com/overview)
-
-
-### **react-use**
-
-A Collection of useful React hooks.
-
-[Go To Documentation](https://github.com/streamich/react-use)
-
-
-### **ESLint**
-
-A pluggable and configurable linter tool for identifying and reporting on patterns in JavaScript. Maintain your code quality with ease.
-
-[Go To Documentation](https://eslint.org/docs/user-guide/getting-started)
-
-
-### **Prettier**
-
-An opinionated code formatter; Supports many languages; Integrates with most editors.
-
-[Go To Documentation](https://prettier.io/docs/en/index.html)
 
 
 
