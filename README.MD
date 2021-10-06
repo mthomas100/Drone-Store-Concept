@@ -37,8 +37,13 @@ Next.js is by far the most exciting tech to come to the web development scene in
 The main reason why static generation was chosen was to avoid the pitfalls that often come with hosting applications on the cheap. Heroku, where I chose to host my backend goes to sleep after a rather short time interval. This means that when someone tries to access the site after a while in which it was not accessed, they will be forced to wait several seconds for the dyno to boot up and load the page. With static generation I only need to hit the heroku (strapi) api once at build time. What about updating site content? There is a build hook enabled through strapi that triggers a rebuild of the statically generated next.js app. It takes a couple minutes for the site to go live after the changes are published by the site admin. Beyond this build time caveat, static generation is a loved feature because of how fast loads and how well it performs for users of the site. 
 
 In a future ecommerce application I am to allow for the best of both worlds. The admin's preview page would be rendered live via server side rendering whereas the side of the app that the public sees would be statically gnerated. Such is the benefit of next.JS
+
 -------------------------------------------------------
+
 **__Other Tech Used__**
+
+
+-------------------------------------------------------
 
 ### **Apollo GraphQL**
 
