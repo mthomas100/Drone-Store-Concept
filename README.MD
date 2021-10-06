@@ -1,7 +1,16 @@
-# tailwindPlay
+# Project Description 
 
+I wanted take a figma design file and translate into a functional and responsive prototype built from scratch.
+The figma project (which I am not the owner of nor am I affiliated with) that I used can be found below
+https://www.figma.com/file/f2w8SKnEDb7gOpDYCcv7C1/BWA-Wordpress-Community?node-id=0%3A1
+I accomplished building this project taking a full stack approach involving as the main technologies [Strapi](https://strapi.com/)for the Backend and [Next.js](https://nextjs.org/) for the Frontend. 
 
-This project was generated with [superplate](https://github.com/pankod/superplate).
+Some secondary goals of this project were to improve my proficiency in TypeScript and to learn the CSS framework tailwindcss, in addition to building on my knowledge of graphql, nextjs, and strapi. 
+
+# project boilerplate
+
+The boilerplate for this project was generated with [superplate](https://github.com/pankod/superplate).
+The superplate CLI helped me generate a nextJS project that included apollo client, styled components, tailwindcss, typescript capable linting configurations, as well as bundling in some helpful libraries such as react-use. 
 
 ## Getting Started
 
