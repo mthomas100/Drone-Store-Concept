@@ -1,4 +1,4 @@
-[https://drone-store-frontend.vercel.app/](Live version of the application)
+Live version of the application: https://drone-store-frontend.vercel.app
 
 # Project Description 
 
