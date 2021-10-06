@@ -1,25 +1,22 @@
 import React from "react";
 import Image from "next/image";
 import { useWindowSize } from "react-use";
-import { SellingPointsTypes } from "graphql/queries";
-
-const specificationsArr = [
-    { spec: "4K", description: "Camera Resolution" },
-    { spec: "2 TB", description: "Storage Capacity" },
-    { spec: "60 m/s", description: "Super Max Speed" },
-    { spec: "30 mins", description: "Long Flight Time" },
-];
+import {
+    ComponentComponentsSpecification,
+    SellingPoint,
+} from "graphql/strapiTypes";
 
 type SpecificationProps = {
-    spec: string;
-    description: string;
+    specifications: ComponentComponentsSpecification[];
+    index: number;
 };
 
 const Specifications: React.FC<SpecificationProps> = ({
-    spec,
-    description,
+    specifications,
+    index,
 }) => {
     const { width: w } = useWindowSize();
+
     return (
         <div className="mb-6">
             <div
@@ -28,10 +25,10 @@ const Specifications: React.FC<SpecificationProps> = ({
                 } lg:mx-2 sm:min-w-[6rem] items-start justify-center text-center`}
             >
                 <div className="text-2xl font-semibold w-full nowrap overflow-ellipsis">
-                    {spec}
+                    {specifications[index].spec}
                 </div>
                 <div className="text-sm font-light min-w-[6rem] max-w-[6rem] ">
-                    {description}
+                    {specifications[index].description}
                 </div>
             </div>
         </div>
@@ -39,7 +36,7 @@ const Specifications: React.FC<SpecificationProps> = ({
 };
 
 type SellingPointsProps = {
-    sellingPoint: SellingPointsTypes;
+    sellingPoint: SellingPoint;
 };
 
 export const SellingPoints: React.FC<SellingPointsProps> = ({
@@ -76,50 +73,40 @@ export const SellingPoints: React.FC<SellingPointsProps> = ({
                     </div>
                     <div className="flex flex-row flex-wrap justify-center">
                         <div className="flex flex-row justify-between ">
-                            {specificationsArr.map(
-                                ({ spec, description }, i) => {
-                                    if (i >= 0 && i < 2) {
-                                        return (
-                                            <Specifications
-                                                key={i}
-                                                spec={
-                                                    sellingPoint.specifications[
-                                                        i
-                                                    ].header
-                                                }
-                                                description={
-                                                    sellingPoint.specifications[
-                                                        i
-                                                    ].description
-                                                }
-                                            />
-                                        );
-                                    }
-                                },
-                            )}
+                            {sellingPoint.specifications.map((_, i) => {
+                                if (i >= 0 && i < 2) {
+                                    return (
+                                        <Specifications
+                                            key={
+                                                sellingPoint.specifications[i]
+                                                    ._id
+                                            }
+                                            specifications={
+                                                sellingPoint.specifications
+                                            }
+                                            index={i}
+                                        />
+                                    );
+                                }
+                            })}
                         </div>
                         <div className="flex flex-row justify-between ">
-                            {specificationsArr.map(
-                                ({ spec, description }, i) => {
-                                    if (i >= 2 && i < 4) {
-                                        return (
-                                            <Specifications
-                                                key={i}
-                                                spec={
-                                                    sellingPoint.specifications[
-                                                        i
-                                                    ].header
-                                                }
-                                                description={
-                                                    sellingPoint.specifications[
-                                                        i
-                                                    ].description
-                                                }
-                                            />
-                                        );
-                                    }
-                                },
-                            )}
+                            {sellingPoint.specifications.map((_, i) => {
+                                if (i >= 2 && i < 4) {
+                                    return (
+                                        <Specifications
+                                            key={
+                                                sellingPoint.specifications[i]
+                                                    ._id
+                                            }
+                                            specifications={
+                                                sellingPoint.specifications
+                                            }
+                                            index={i}
+                                        />
+                                    );
+                                }
+                            })}
                         </div>
                     </div>
                 </div>

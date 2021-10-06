@@ -85,8 +85,8 @@ export type MarketingCard = {
     header: Scalars["String"];
     description: Scalars["String"];
     image?: Maybe<UploadFile>;
-    headerColor: Scalars["String"];
-    descriptionColor: Scalars["String"];
+    headerDarkness?: Maybe<ComponentComponentsTextDarkness>;
+    descriptionDarkness?: Maybe<ComponentComponentsTextDarkness>;
 };
 
 export type MarketingCardConnection = {
@@ -111,9 +111,9 @@ export type MarketingCardGroupBy = {
     header?: Maybe<Array<Maybe<MarketingCardConnectionHeader>>>;
     description?: Maybe<Array<Maybe<MarketingCardConnectionDescription>>>;
     image?: Maybe<Array<Maybe<MarketingCardConnectionImage>>>;
-    headerColor?: Maybe<Array<Maybe<MarketingCardConnectionHeaderColor>>>;
-    descriptionColor?: Maybe<
-        Array<Maybe<MarketingCardConnectionDescriptionColor>>
+    headerDarkness?: Maybe<Array<Maybe<MarketingCardConnectionHeaderDarkness>>>;
+    descriptionDarkness?: Maybe<
+        Array<Maybe<MarketingCardConnectionDescriptionDarkness>>
     >;
 };
 
@@ -159,15 +159,15 @@ export type MarketingCardConnectionImage = {
     connection?: Maybe<MarketingCardConnection>;
 };
 
-export type MarketingCardConnectionHeaderColor = {
-    __typename?: "MarketingCardConnectionHeaderColor";
-    key?: Maybe<Scalars["String"]>;
+export type MarketingCardConnectionHeaderDarkness = {
+    __typename?: "MarketingCardConnectionHeaderDarkness";
+    key?: Maybe<Scalars["ID"]>;
     connection?: Maybe<MarketingCardConnection>;
 };
 
-export type MarketingCardConnectionDescriptionColor = {
-    __typename?: "MarketingCardConnectionDescriptionColor";
-    key?: Maybe<Scalars["String"]>;
+export type MarketingCardConnectionDescriptionDarkness = {
+    __typename?: "MarketingCardConnectionDescriptionDarkness";
+    key?: Maybe<Scalars["ID"]>;
     connection?: Maybe<MarketingCardConnection>;
 };
 
@@ -175,8 +175,8 @@ export type MarketingCardInput = {
     header: Scalars["String"];
     description: Scalars["String"];
     image?: Maybe<Scalars["ID"]>;
-    headerColor: Scalars["String"];
-    descriptionColor: Scalars["String"];
+    headerDarkness?: Maybe<ComponentComponentsTextDarknessInput>;
+    descriptionDarkness?: Maybe<ComponentComponentsTextDarknessInput>;
     created_by?: Maybe<Scalars["ID"]>;
     updated_by?: Maybe<Scalars["ID"]>;
 };
@@ -185,8 +185,8 @@ export type EditMarketingCardInput = {
     header?: Maybe<Scalars["String"]>;
     description?: Maybe<Scalars["String"]>;
     image?: Maybe<Scalars["ID"]>;
-    headerColor?: Maybe<Scalars["String"]>;
-    descriptionColor?: Maybe<Scalars["String"]>;
+    headerDarkness?: Maybe<EditComponentComponentsTextDarknessInput>;
+    descriptionDarkness?: Maybe<EditComponentComponentsTextDarknessInput>;
     created_by?: Maybe<Scalars["ID"]>;
     updated_by?: Maybe<Scalars["ID"]>;
 };
@@ -1109,6 +1109,28 @@ export type EditComponentComponentsSpecificationInput = {
     description?: Maybe<Scalars["String"]>;
 };
 
+export enum Enum_Componentcomponentstextdarkness_Darkness {
+    Light = "light",
+    Medium = "medium",
+    Dark = "dark",
+}
+
+export type ComponentComponentsTextDarkness = {
+    __typename?: "ComponentComponentsTextDarkness";
+    id: Scalars["ID"];
+    _id: Scalars["ID"];
+    darkness?: Maybe<Enum_Componentcomponentstextdarkness_Darkness>;
+};
+
+export type ComponentComponentsTextDarknessInput = {
+    darkness?: Maybe<Enum_Componentcomponentstextdarkness_Darkness>;
+};
+
+export type EditComponentComponentsTextDarknessInput = {
+    id?: Maybe<Scalars["ID"]>;
+    darkness?: Maybe<Enum_Componentcomponentstextdarkness_Darkness>;
+};
+
 export type Morph =
     | UsersPermissionsMe
     | UsersPermissionsMeRole
@@ -1125,8 +1147,8 @@ export type Morph =
     | MarketingCardConnectionHeader
     | MarketingCardConnectionDescription
     | MarketingCardConnectionImage
-    | MarketingCardConnectionHeaderColor
-    | MarketingCardConnectionDescriptionColor
+    | MarketingCardConnectionHeaderDarkness
+    | MarketingCardConnectionDescriptionDarkness
     | CreateMarketingCardPayload
     | UpdateMarketingCardPayload
     | DeleteMarketingCardPayload
@@ -1220,7 +1242,8 @@ export type Morph =
     | CreateUserPayload
     | UpdateUserPayload
     | DeleteUserPayload
-    | ComponentComponentsSpecification;
+    | ComponentComponentsSpecification
+    | ComponentComponentsTextDarkness;
 
 export type InputId = {
     id: Scalars["ID"];

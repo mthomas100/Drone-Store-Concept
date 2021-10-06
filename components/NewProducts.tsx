@@ -1,9 +1,8 @@
-import { Products } from "generated/apolloComponents";
-import { ProductsTypes } from "graphql/queries";
+import { MutationUpdateProductArgs, Product } from "graphql/strapiTypes";
 import Image from "next/image";
 
 type CardProps = {
-    product: ProductsTypes;
+    product: Product;
     buttonColor: string;
 };
 
@@ -36,7 +35,7 @@ const Card: React.FC<CardProps> = ({ product, buttonColor }) => {
 };
 
 type NewProductsProps = {
-    products: ProductsTypes[];
+    products: Product[];
 };
 
 export const NewProducts: React.FC<NewProductsProps> = ({ products }) => {

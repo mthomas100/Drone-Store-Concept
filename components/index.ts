@@ -6,6 +6,6 @@ export { SellingPoints } from "./SellingPoints";
 export { Page } from "./Page";
 export { NewProducts } from "./NewProducts";
 export { Testimonials } from "./Testimonials";
-export { Cards } from "./Cards";
+export { MarketingCards } from "./MarketingCards";
 export { MobileNav } from "./MobileNav";
 export { Main } from "./Main";

@@ -10,6 +10,18 @@
     @apply bg-indigo-500;
 }
 
+.dark {
+    @apply text-gray-800;
+}
+
+.medium {
+    @apply text-gray-500;
+}
+
+.light {
+    @apply text-gray-200;
+}
+
 .button {
     @apply text-gray-100 font-semibold 
     mx-auto px-6 py-2 rounded-full uppercase

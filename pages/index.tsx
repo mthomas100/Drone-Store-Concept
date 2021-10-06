@@ -5,33 +5,35 @@ import {
     Container,
     Header,
     Footer,
-    Testimonials,
-    Cards,
-    NewProducts,
+    MarketingCards,
     SellingPoints,
     Main,
     MobileNav,
+    Testimonials,
+    NewProducts,
 } from "components";
 import createApolloClient from "@services/graphql";
 import {
-    MarketingCardsTypes,
+    MarketingCard,
+    Product,
+    SellingPoint,
+    Testimonial,
+} from "graphql/strapiTypes";
+import {
     MARKETING_CARDS_QUERY,
-    ProductsTypes,
     PRODUCTS_QUERY,
-    SellingPointsTypes,
     SELLING_POINT_QUERY,
-    TestimonialsTypes,
     TESTIMONIALS_QUERY,
 } from "graphql/queries";
 
-type gqlProps = {
-    marketingCards: MarketingCardsTypes[];
-    products: ProductsTypes[];
-    sellingPoint: SellingPointsTypes;
-    testimonials: TestimonialsTypes[];
+type HomeProps = {
+    marketingCards: MarketingCard[];
+    products: Product[];
+    sellingPoint: SellingPoint;
+    testimonials: Testimonial[];
 };
 
-const Home: React.FC<gqlProps> = ({
+const Home: React.FC<HomeProps> = ({
     marketingCards,
     products,
     sellingPoint,
@@ -42,10 +44,10 @@ const Home: React.FC<gqlProps> = ({
             <MobileNav />
             <Header />
             <Main />
-            <Cards marketingCards={marketingCards} />
-            {/* <SellingPoints sellingPoint={sellingPoint} />
+            <MarketingCards marketingCards={marketingCards} />
+            <SellingPoints sellingPoint={sellingPoint} />
             <NewProducts products={products} />
-            <Testimonials testimonials={testimonials} /> */}
+            <Testimonials testimonials={testimonials} />
             <Footer />
         </Container>
     );
@@ -56,30 +58,29 @@ export default Home;
 export const getStaticProps: GetStaticProps = async () => {
     /* eslint-disable */
 
-    //TODO: error handling (+ cleaning this area up.... or coupling it with the graphql query file)
     const { data: { marketingCards }} = await createApolloClient.query({
         query: MARKETING_CARDS_QUERY,
     });
-    
-    // const { data: { products }} = await createApolloClient.query({
-    //     query: PRODUCTS_QUERY,
-    // });
 
-    // const { data: { sellingPoint }} = await createApolloClient.query({
-    //     query: SELLING_POINT_QUERY,
-    // });
+    const { data: { products }} = await createApolloClient.query({
+        query: PRODUCTS_QUERY,
+    });
 
-    // const { data: { testimonials }} = await createApolloClient.query({
-    //     query: TESTIMONIALS_QUERY,
-    // });
+    const { data: { sellingPoint }} = await createApolloClient.query({
+        query: SELLING_POINT_QUERY,
+    });
+
+    const { data: { testimonials }} = await createApolloClient.query({
+        query: TESTIMONIALS_QUERY,
+    });
     /* eslint-enable */
 
     return {
         props: {
             marketingCards,
-            // products,
-            // sellingPoint,
-            // testimonials,
+            products,
+            sellingPoint,
+            testimonials,
         },
     };
 };

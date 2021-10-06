@@ -1,33 +1,35 @@
-import { Maybe, Scalars, UploadFile } from "generated/apolloComponents";
 import gql from "graphql-tag";
 
-// export type MarketingCardsTypes = {
-//     __typename?: "MarketingCards";
-//     id: Scalars["ID"];
-//     created_at: Scalars["DateTime"];
-//     updated_at: Scalars["DateTime"];
-//     header: Scalars["String"];
-//     description: Scalars["String"];
-//     image?: Maybe<
-//         { __typename?: "UploadFile" } & Pick<UploadFile, "id" | "url">
-//     >;
-//     headerColor?: Maybe<Scalars["String"]>;
-//     descriptionColor?: Maybe<Scalars["String"]>;
-//     published_at?: Maybe<Scalars["DateTime"]>;
-// };
+//FRAGMENTS
+const FRAGMENT_IMAGE = gql`
+    fragment fragmentImage on UploadFile {
+        id
+        createdAt
+        updatedAt
+        name
+        alternativeText
+        caption
+        width
+        height
+        formats
+        hash
+        ext
+        mime
+        size
+        url
+    }
+`;
 
-export type MarketingCardTypes = {
-    __typename?: "MarketingCard";
-    id: Scalars["ID"];
-    _id: Scalars["ID"];
-    createdAt: Scalars["DateTime"];
-    updatedAt: Scalars["DateTime"];
-    header: Scalars["String"];
-    description: Scalars["String"];
-    image?: Maybe<UploadFile>;
-    headerColor: Scalars["String"];
-    descriptionColor: Scalars["String"];
-};
+const FRAGMENT_TEXT_DARKNESS = gql`
+    fragment fragmentTextDarkness on ComponentComponentsTextDarkness {
+        __typename
+        id
+        _id
+        darkness
+    }
+`;
+
+//QUERIES
 
 export const MARKETING_CARDS_QUERY = gql`
     query MARKETING_CARDS_QUERY {
@@ -38,120 +40,76 @@ export const MARKETING_CARDS_QUERY = gql`
             createdAt
             updatedAt
             header
+            headerDarkness {
+                ...fragmentTextDarkness
+            }
             description
-            image
-            headerColor
-            descriptionColor
+            descriptionDarkness {
+                ...fragmentTextDarkness
+            }
+            image {
+                ...fragmentImage
+            }
         }
     }
+    ${FRAGMENT_IMAGE}
+    ${FRAGMENT_TEXT_DARKNESS}
 `;
-
-export type ProductsTypes = {
-    __typename?: "Products";
-    id: Scalars["ID"];
-    created_at: Scalars["DateTime"];
-    updated_at: Scalars["DateTime"];
-    name: Scalars["String"];
-    description: Scalars["String"];
-    image?: Maybe<
-        { __typename?: "UploadFile" } & Pick<UploadFile, "id" | "url">
-    >;
-    published_at?: Maybe<Scalars["DateTime"]>;
-};
 
 export const PRODUCTS_QUERY = gql`
     query PRODUCTS_QUERY {
         products {
             __typename
             id
-            created_at
-            updated_at
+            _id
+            createdAt
+            updatedAt
             name
             description
             image {
-                url
-                id
+                ...fragmentImage
             }
-            published_at
         }
     }
+    ${FRAGMENT_IMAGE}
 `;
-
-export type SellingPointsTypes = {
-    __typename?: "SellingPoints";
-    id: Scalars["ID"];
-    created_at: Scalars["DateTime"];
-    updated_at: Scalars["DateTime"];
-    header: Scalars["String"];
-    description: Scalars["String"];
-    specifications?: Maybe<
-        Array<
-            Maybe<{
-                __typename?: "ComponentSpecificationSpecification";
-                id: Scalars["ID"];
-                header: Scalars["String"];
-                description: Scalars["String"];
-            }>
-        >
-    >;
-    image?: Maybe<
-        { __typename?: "UploadFile" } & Pick<UploadFile, "id" | "url">
-    >;
-    published_at?: Maybe<Scalars["DateTime"]>;
-};
 
 export const SELLING_POINT_QUERY = gql`
     query SELLING_POINT_QUERY {
         sellingPoint {
             __typename
             id
-            created_at
-            updated_at
+            _id
+            createdAt
+            updatedAt
             header
             description
             specifications {
+                __typename
                 id
-                header
+                _id
+                spec
                 description
             }
-            image {
-                url
-                id
-            }
-            published_at
         }
     }
 `;
-
-export type TestimonialsTypes = {
-    __typename?: "Testimonials";
-    id: Scalars["ID"];
-    created_at: Scalars["DateTime"];
-    updated_at: Scalars["DateTime"];
-    testimonial: Scalars["String"];
-    name: Scalars["String"];
-    title: Scalars["String"];
-    image?: Maybe<
-        { __typename?: "UploadFile" } & Pick<UploadFile, "id" | "url">
-    >;
-    published_at?: Maybe<Scalars["DateTime"]>;
-};
 
 export const TESTIMONIALS_QUERY = gql`
     query TESTIMONIALS_QUERY {
         testimonials {
             __typename
             id
-            created_at
-            updated_at
-            testimonial
+            _id
+            createdAt
+            updatedAt
             name
             title
             image {
-                url
-                id
+                ...fragmentImage
             }
-            published_at
+            testimonial
         }
     }
+    ${FRAGMENT_IMAGE}
 `;
