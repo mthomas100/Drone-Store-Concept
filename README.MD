@@ -3,7 +3,7 @@ Live demo of the app: https://drone-store-frontend.vercel.app/
 # Project Description 
 
 I wanted take a figma design file and translate into a functional and responsive prototype built from scratch.
-The figma project (which I am not the owner of nor am I affiliated with) that I used can be found below
+The figma project (which I am not the owner of nor am I affiliated with) that I used can be found here: 
 https://www.figma.com/file/f2w8SKnEDb7gOpDYCcv7C1/BWA-Wordpress-Community?node-id=0%3A1
 I accomplished building this project taking a full stack approach involving as the main technologies [Strapi](https://strapi.com/)for the Backend and [Next.js](https://nextjs.org/) for the Frontend. **__Presently this application is only composed of the home page (adding dynamic product routes is planned for a future updated__**
 
