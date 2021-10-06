@@ -43,27 +43,27 @@ In a future ecommerce application I am to allow for the best of both worlds. The
 
 ### **Apollo GraphQL**
 
->>Apollo Client is a comprehensive state management library for JavaScript that enables you to manage both local and remote data with GraphQL. Use it to fetch, cache, >>and modify application data, all while automatically updating your UI.
->>[Go To Documentation](https://www.apollographql.com/docs/react/)
+>Apollo Client is a comprehensive state management library for JavaScript that enables you to manage both local and remote data with GraphQL. Use it to fetch, cache, >>and modify application data, all while automatically updating your UI.
+>[Go To Documentation](https://www.apollographql.com/docs/react/)
 
 
 
 ### **react-use**
 
->>A Collection of useful React hooks.
->>[Go To Documentation](https://github.com/streamich/react-use)
+>A Collection of useful React hooks.
+>[Go To Documentation](https://github.com/streamich/react-use)
 
 
 ### **ESLint**
 
->> A pluggable and configurable linter tool for identifying and reporting on patterns in JavaScript. Maintain your code quality with ease.
->> [Go To Documentation](https://eslint.org/docs/user-guide/getting-started)
+> A pluggable and configurable linter tool for identifying and reporting on patterns in JavaScript. Maintain your code quality with ease.
+> [Go To Documentation](https://eslint.org/docs/user-guide/getting-started)
 
 
 ### **Prettier**
 
->> An opinionated code formatter; Supports many languages; Integrates with most editors.
->> [Go To Documentation](https://prettier.io/docs/en/index.html)
+> An opinionated code formatter; Supports many languages; Integrates with most editors.
+> [Go To Documentation](https://prettier.io/docs/en/index.html)
 
 ## Available Scripts
 
