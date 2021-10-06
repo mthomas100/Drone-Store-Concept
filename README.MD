@@ -1,4 +1,3 @@
-Live version of the application: https://drone-store-frontend.vercel.app
 
 # Project Description 
 
@@ -31,7 +30,7 @@ This was my first project using tailwindCSS. It is known for being a highly effe
 
 # NextJS
 
-> "The React Framework for Production" Next.js gives you the best developer experience with all the features you need for production: hybrid static & server rendering, TypeScript support, smart bundling, route pre-fetching, and more. No config needed.
+> "The React Framework for Production" [Next.js](https://nextjs.org/) gives you the best developer experience with all the features you need for production: hybrid static & server rendering, TypeScript support, smart bundling, route pre-fetching, and more. No config needed.
 
 Next.js is by far the most exciting tech to come to the web development scene in recent times. Its page based routing system and ability to easily switch between server side rendering, static generation, incremental static generation, etc. make it a powerful tool for any react developer. In this project I used its static generation capabilities, as it has no real dynamic data. In theory if this project were used to bootstrap a live app, a combination of these rendering modes would be used where it necessary. 
 
