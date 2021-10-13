@@ -1,4 +1,6 @@
-##Live demo of the app: https://drone-store-frontend.vercel.app/
+### Live demo of app: https://drone-store-frontend.vercel.app/
+
+-------------------------------------------------------
 
 # Project Description 
 
