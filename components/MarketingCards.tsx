@@ -19,7 +19,7 @@ const MarketingCard: React.FC<CardProps> = ({ marketingCard }) => {
                     {marketingCard.header}
                 </div>
                 <div
-                    className={`${marketingCard.descriptionDarkness.darkness} text-lg font-extralight tracking-wide`}
+                    className={`${marketingCard.descriptionDarkness.darkness} text-lg font-light tracking-wider`}
                 >
                     {marketingCard.description}
                 </div>

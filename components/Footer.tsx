@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const links = {
     explore: ["Our Services", "Specification", "Refund", "Playlist"],
@@ -50,8 +51,9 @@ const FooterColumn: React.FC<FooterColumnProps> = ({ category, links }) => {
             <div className="mb-6 font-semibold text-gray-100">{category}</div>
             <ul className="leading-10 font-light text-gray-200">
                 {links.map((link) => (
-                    <li key={link}>
-                        <a href={""}>{link}</a>
+                    <li key={link} className="cursor-pointer">
+                        {/* <Link href="">{link}</Link> */}
+                        {link}
                     </li>
                 ))}
             </ul>

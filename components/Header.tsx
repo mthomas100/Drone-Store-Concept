@@ -7,12 +7,15 @@ import { useLayout } from "lib/layoutState";
 import { useData } from "lib/dataState";
 
 const DroneIcon: React.FC = () => (
-    <div id="iconWrapper" className="text-md min-w-[4rem] relative">
+    <div
+        id="iconWrapper"
+        className="text-md min-w-[4rem] relative min-h-full cursor-pointer"
+    >
         <Image
             src="/icons/drone2.svg"
             alt="drone logo"
             layout="fill"
-            className=""
+            className="h-full"
         />
     </div>
 );
@@ -31,12 +34,13 @@ export const NavDesktop: React.FC = () => {
                 className="flex justify-between gap-5 sm:gap-7 md:gap-14 lg:gap-20"
             >
                 <DroneIcon />
+
                 {links.map((link) => (
-                    <div key="link" className=" text-md">
+                    <div key="link" className="text-md cursor-pointer">
                         {link}
                     </div>
                 ))}
-                <Search className="text-2xl align-self-center h-auto" />
+                <Search className="text-2xl align-self-center h-auto cursor-pointer" />
             </div>
         </>
     );
