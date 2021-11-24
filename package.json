@@ -31,8 +31,12 @@
         "react-query": "^3.5.16",
         "react-use": "^15.3.8",
         "styled-components": "^5.2.1",
+<<<<<<< HEAD
         "styled-system": "^5.1.5",
         "uuid": "^8.3.2"
+=======
+        "styled-system": "^5.1.5"
+>>>>>>> 799a5481abedd6ece0ad7673601722c2ddbe48e9
     },
     "devDependencies": {
         "@graphql-codegen/cli": "^1.20.0",

@@ -14,7 +14,10 @@ import {
 } from "components";
 import createApolloClient from "@services/graphql";
 import {
+<<<<<<< HEAD
     Hero,
+=======
+>>>>>>> 799a5481abedd6ece0ad7673601722c2ddbe48e9
     MarketingCard,
     Product,
     SellingPoint,
@@ -25,7 +28,10 @@ import {
     PRODUCTS_QUERY,
     SELLING_POINT_QUERY,
     TESTIMONIALS_QUERY,
+<<<<<<< HEAD
     HERO_QUERY,
+=======
+>>>>>>> 799a5481abedd6ece0ad7673601722c2ddbe48e9
 } from "graphql/queries";
 
 type HomeProps = {
@@ -33,7 +39,10 @@ type HomeProps = {
     products: Product[];
     sellingPoint: SellingPoint;
     testimonials: Testimonial[];
+<<<<<<< HEAD
     hero: Hero;
+=======
+>>>>>>> 799a5481abedd6ece0ad7673601722c2ddbe48e9
 };
 
 const Home: React.FC<HomeProps> = ({
@@ -41,13 +50,20 @@ const Home: React.FC<HomeProps> = ({
     products,
     sellingPoint,
     testimonials,
+<<<<<<< HEAD
     hero,
+=======
+>>>>>>> 799a5481abedd6ece0ad7673601722c2ddbe48e9
 }) => {
     return (
         <Container>
             <MobileNav />
             <Header />
+<<<<<<< HEAD
             <Main hero={hero} />
+=======
+            <Main />
+>>>>>>> 799a5481abedd6ece0ad7673601722c2ddbe48e9
             <MarketingCards marketingCards={marketingCards} />
             <SellingPoints sellingPoint={sellingPoint} />
             <NewProducts products={products} />
@@ -77,10 +93,13 @@ export const getStaticProps: GetStaticProps = async () => {
     const { data: { testimonials }} = await createApolloClient.query({
         query: TESTIMONIALS_QUERY,
     });
+<<<<<<< HEAD
 
     const { data: { hero }} = await createApolloClient.query({
         query: HERO_QUERY,
     });
+=======
+>>>>>>> 799a5481abedd6ece0ad7673601722c2ddbe48e9
     /* eslint-enable */
 
     return {
@@ -89,7 +108,10 @@ export const getStaticProps: GetStaticProps = async () => {
             products,
             sellingPoint,
             testimonials,
+<<<<<<< HEAD
             hero,
+=======
+>>>>>>> 799a5481abedd6ece0ad7673601722c2ddbe48e9
         },
     };
 };
