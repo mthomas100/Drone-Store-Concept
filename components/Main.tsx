@@ -7,7 +7,7 @@ type MainProps = {
 };
 
 export const Main: React.FC<MainProps> = ({ hero }) => {
-    console.log(hero);
+    
     return (
         <div className="text-center font-light px-10 py-20 bg-black">
             <div id="info" className="w-full sm:w-[65%] mx-auto">
