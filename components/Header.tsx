@@ -1,18 +1,11 @@
-<<<<<<< HEAD
 import React, { useEffect } from "react";
-=======
-import React from "react";
->>>>>>> 799a5481abedd6ece0ad7673601722c2ddbe48e9
 import Image from "next/image";
 import { HiOutlineSearch as Search } from "react-icons/hi";
 import { GiHamburgerMenu as Hamburger } from "react-icons/gi";
 import { useWindowSize, useMeasure } from "react-use";
 import { useLayout } from "lib/layoutState";
 import { useData } from "lib/dataState";
-<<<<<<< HEAD
 import { v4 as uuidv4 } from "uuid";
-=======
->>>>>>> 799a5481abedd6ece0ad7673601722c2ddbe48e9
 
 const DroneIcon: React.FC = () => (
     <div
