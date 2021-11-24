@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.green {
+    @apply bg-green-500;
+}
+
+.indigo {
+    @apply bg-indigo-500;
+}
+
+/*Font Styles*/
+
+.dark {
+    @apply text-gray-800;
+}
+
+.medium {
+    @apply text-gray-500;
+}
+
+.light {
+    @apply text-gray-200;
+}
+
+/*Button Styles*/
+
+.button {
+    @apply text-white font-semibold 
+    mx-auto px-6 py-2 rounded-full uppercase
+    cursor-pointer tracking-wider;
+}
+
+.button:hover {
+    @apply filter brightness-110;
+}
+
+.button:focus {
+    @apply outline-none;
+}

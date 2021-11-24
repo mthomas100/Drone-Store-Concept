@@ -1,8 +1,8 @@
 module.exports = {
     client: {
         service: {
-            name: "SpaceX",
-            url: "https://api.spacex.land/graphql/",
+            name: "drone-prototype",
+            url: process.env.NEXT_PUBLIC_API_URL,
         },
     },
 };

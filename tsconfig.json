@@ -5,6 +5,7 @@
         "allowJs": true,
         "skipLibCheck": true,
         "strict": true,
+        "strictNullChecks": false,
         "forceConsistentCasingInFileNames": true,
         "noEmit": true,
         "esModuleInterop": true,
@@ -15,8 +16,8 @@
         "jsx": "preserve",
         "baseUrl": ".",
         "paths": {
-            "@components/*": ["src/components/*"],
-            "@components": ["src/components"],
+            "@components/*": ["components/*"],
+            "@components": ["components"],
             "@public/*": ["public/*"],
             "@public": ["public"],
             "@definitions/*": ["src/definitions/*"],
