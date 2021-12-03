@@ -5,7 +5,7 @@ import {
     ComponentComponentsSpecification,
     SellingPoint,
 } from "graphql/strapiTypes";
-import getSmallCloudinary from "utils/getSmallCloudinary";
+// import getSmallCloudinary from "utils/getSmallCloudinary";
 
 type SpecificationProps = {
     specifications: ComponentComponentsSpecification[];

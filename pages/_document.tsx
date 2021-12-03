@@ -1,4 +1,11 @@
-import Document, { DocumentContext, DocumentInitialProps } from "next/document";
+import Document, {
+    Html,
+    Head,
+    Main,
+    NextScript,
+    DocumentContext,
+    DocumentInitialProps,
+} from "next/document";
 import { ServerStyleSheet } from "styled-components";
 
 class CustomDocument extends Document {
@@ -29,6 +36,23 @@ class CustomDocument extends Document {
         const initialProps = await Document.getInitialProps(ctx);
 
         return initialProps;
+    }
+
+    render() {
+        return (
+            <Html lang="en" dir="ltr">
+                <Head>
+                    <meta
+                        name="description"
+                        content="The Healthy Fermentary is the highest quality source of deliverable fermented beverages"
+                    />
+                </Head>
+                <body>
+                    <Main />
+                    <NextScript />
+                </body>
+            </Html>
+        );
     }
 }
 
