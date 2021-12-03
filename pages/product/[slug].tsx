@@ -24,7 +24,7 @@ export async function getStaticPaths() {
     /* eslint-enable */
 
     // Get the paths we want to pre-render based on posts
-    const paths = products.map(({ slug }) => ({
+    const paths = products.map(({ slug }: { slug: string }) => ({
         params: { slug },
     }));
 

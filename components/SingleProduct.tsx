@@ -18,7 +18,7 @@ const SingleProduct: React.FC<SingleProductProps> = ({ product }) => {
                 >
                     <Image
                         src={product.image.url}
-                        alt={product.image.alt}
+                        alt={product.name}
                         layout="fill"
                         objectFit="cover"
                         className="rounded-md md:rounded-none"
