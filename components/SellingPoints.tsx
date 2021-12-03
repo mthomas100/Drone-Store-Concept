@@ -5,6 +5,7 @@ import {
     ComponentComponentsSpecification,
     SellingPoint,
 } from "graphql/strapiTypes";
+import getSmallCloudinary from "utils/getSmallCloudinary";
 
 type SpecificationProps = {
     specifications: ComponentComponentsSpecification[];
@@ -57,11 +58,13 @@ export const SellingPoints: React.FC<SellingPointsProps> = ({
                     className="min-h-[12rem] sm:min-h-[16rem] md:min-h-[20rem] lg:min-h-[24rem] text-md w-full sm:min-w-[20rem] max-w-[20rem] relative mb-12 mx-auto"
                 >
                     <Image
-                        src="/images/sellingPoint.png"
+                        src={sellingPoint.image.url}
                         alt="drone logo"
                         layout="fill"
                         objectFit="contain"
                         className="text-gray-100 min-h-full"
+                        // placeholder="blur"
+                        // blurDataURL={getSmallCloudinary(sellingPoint.image.url)}
                     />
                 </div>
                 <div className="max-w-full sm:max-w-[60%] mx-auto px-6 text-center">

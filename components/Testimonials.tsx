@@ -1,5 +1,6 @@
 import { Testimonial } from "graphql/strapiTypes";
 import Image from "next/image";
+import getSmallCloudinary from "utils/getSmallCloudinary";
 
 type TestimonialCardProps = {
     testimonial: Testimonial;
@@ -22,6 +23,8 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial }) => {
                         layout="fill"
                         objectFit="cover"
                         className="rounded-full"
+                        placeholder="blur"
+                        blurDataURL={getSmallCloudinary(testimonial.image.url)}
                     />
                 </div>
                 <div className="flex flex-col ml-5">

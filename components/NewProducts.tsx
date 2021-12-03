@@ -1,5 +1,6 @@
 import { Product } from "graphql/strapiTypes";
 import Image from "next/image";
+import getSmallCloudinary from "utils/getSmallCloudinary";
 import ProductLink from "./ProductLink";
 
 type CardProps = {
@@ -20,6 +21,8 @@ const Card: React.FC<CardProps> = ({ product, buttonColor }) => {
                     layout="fill"
                     objectFit="cover"
                     className="text-gray-100 rounded-2xl"
+                    placeholder="blur"
+                    blurDataURL={getSmallCloudinary(product.image.url)}
                 />
             </div>
 

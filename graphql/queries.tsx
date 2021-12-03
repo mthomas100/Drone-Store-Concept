@@ -92,8 +92,12 @@ export const SELLING_POINT_QUERY = gql`
                 spec
                 description
             }
+            image {
+                ...fragmentImage
+            }
         }
     }
+    ${FRAGMENT_IMAGE}
 `;
 
 export const TESTIMONIALS_QUERY = gql`
@@ -127,6 +131,10 @@ export const HERO_QUERY = gql`
             description
             buttonText
             published_at
+            image {
+                ...fragmentImage
+            }
         }
     }
+    ${FRAGMENT_IMAGE}
 `;

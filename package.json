@@ -6,9 +6,6 @@
         "dev": "next dev",
         "build": "next build",
         "start": "next start",
-        "apollo:download-schema": "apollo client:download-schema schema.graphql",
-        "apollo:generate-types": "rm -rf __generated__ && apollo client:codegen --target typescript --outputFlat",
-        "apollo:sync": "npm run apollo:download-schema && npm run apollo:generate-types",
         "codegen:generate": "graphql-codegen --config codegen.yml",
         "lint": "eslint '**/*.{js,jsx,ts,tsx}'",
         "prettier": "prettier --write '**/*.{js,jsx,ts,tsx}'"

@@ -101,6 +101,7 @@ export type Hero = {
   header: Scalars['String'];
   description: Scalars['String'];
   buttonText: Scalars['String'];
+  image?: Maybe<UploadFile>;
   published_at?: Maybe<Scalars['DateTime']>;
 };
 
@@ -108,6 +109,7 @@ export type HeroInput = {
   header: Scalars['String'];
   description: Scalars['String'];
   buttonText: Scalars['String'];
+  image?: Maybe<Scalars['ID']>;
   published_at?: Maybe<Scalars['DateTime']>;
   created_by?: Maybe<Scalars['ID']>;
   updated_by?: Maybe<Scalars['ID']>;
@@ -707,12 +709,14 @@ export type SellingPoint = {
   header: Scalars['String'];
   description: Scalars['String'];
   specifications?: Maybe<Array<Maybe<ComponentComponentsSpecification>>>;
+  image?: Maybe<UploadFile>;
 };
 
 export type SellingPointInput = {
   header: Scalars['String'];
   description: Scalars['String'];
   specifications?: Maybe<Array<ComponentComponentsSpecificationInput>>;
+  image?: Maybe<Scalars['ID']>;
   created_by?: Maybe<Scalars['ID']>;
   updated_by?: Maybe<Scalars['ID']>;
 };
@@ -1410,6 +1414,7 @@ export type EditHeroInput = {
   header?: Maybe<Scalars['String']>;
   description?: Maybe<Scalars['String']>;
   buttonText?: Maybe<Scalars['String']>;
+  image?: Maybe<Scalars['ID']>;
   published_at?: Maybe<Scalars['DateTime']>;
   created_by?: Maybe<Scalars['ID']>;
   updated_by?: Maybe<Scalars['ID']>;
@@ -1455,6 +1460,7 @@ export type EditSellingPointInput = {
   header?: Maybe<Scalars['String']>;
   description?: Maybe<Scalars['String']>;
   specifications?: Maybe<Array<Maybe<EditComponentComponentsSpecificationInput>>>;
+  image?: Maybe<Scalars['ID']>;
   created_by?: Maybe<Scalars['ID']>;
   updated_by?: Maybe<Scalars['ID']>;
 };
@@ -1636,6 +1642,10 @@ export type Hero_QueryQuery = (
   & { hero?: Maybe<(
     { __typename: 'Hero' }
     & Pick<Hero, 'id' | '_id' | 'createdAt' | 'updatedAt' | 'header' | 'description' | 'buttonText' | 'published_at'>
+    & { image?: Maybe<(
+      { __typename?: 'UploadFile' }
+      & FragmentImageFragment
+    )> }
   )> }
 );
 
@@ -1863,9 +1873,12 @@ export const Hero_QueryDocument = gql`
     description
     buttonText
     published_at
+    image {
+      ...fragmentImage
+    }
   }
 }
-    `;
+    ${FragmentImageFragmentDoc}`;
 
 /**
  * __useHero_QueryQuery__

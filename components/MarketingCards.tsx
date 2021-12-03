@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { MarketingCard as MarketingCardTypes } from "graphql/strapiTypes";
+import getSmallCloudinary from "utils/getSmallCloudinary";
 
 type CardProps = {
     marketingCard: MarketingCardTypes;
@@ -33,6 +34,9 @@ const MarketingCard: React.FC<CardProps> = ({ marketingCard }) => {
                 objectPosition="50% 70%"
                 className="absolute inset-0 z-0"
                 id="image"
+                priority
+                placeholder="blur"
+                blurDataURL={getSmallCloudinary(marketingCard.image.url)}
             />
         </div>
     );

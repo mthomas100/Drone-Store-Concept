@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { Hero } from "graphql/strapiTypes";
 import ProductLink from "./ProductLink";
+import getSmallCloudinary from "utils/getSmallCloudinary";
 
 type MainProps = {
     hero: Hero;
@@ -28,11 +29,14 @@ export const Main: React.FC<MainProps> = ({ hero }) => {
                 className="text-md min-h-[10rem] sm:min-h-[24rem]  min-w-full relative "
             >
                 <Image
-                    src="/images/Hero Image 1.png"
+                    src={hero.image.url}
                     alt="drone logo"
                     layout="fill"
                     objectFit="contain"
                     className="text-gray-100"
+                    // placeholder="blur"
+                    priority
+                    // blurDataURL={getSmallCloudinary(hero.image.url)}
                 />
             </div>
         </div>
