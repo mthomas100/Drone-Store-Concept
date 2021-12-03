@@ -27,10 +27,14 @@ const SingleProduct: React.FC<SingleProductProps> = ({ product }) => {
                     />
                 </div>
                 <div className="mt-10 md:px-10" ref={detailsRef}>
-                    <h1 className="text-xl font-bold">{product.name}</h1>
+                    <h1 className="text-xl font-bold tracking-wider">
+                        {product.name}
+                    </h1>
                     <div className="mt-5 text-3xl">$4,500</div>
-                    <div className="mt-10 font-bold">Drone Features:</div>
-                    <ul className="mt-5 text-xl font-thin">
+                    <div className="mt-10 font-bold text-base">
+                        Drone Features:
+                    </div>
+                    <ul className="mt-5 text-lg font-thin">
                         <li className="mt-4">4K Camera Resolution</li>
                         <li className="mt-4">2 TB Storage</li>
                         <li className="mt-4">20 m/s Speed</li>
@@ -42,8 +46,8 @@ const SingleProduct: React.FC<SingleProductProps> = ({ product }) => {
                 </div>
             </div>
             <div className="py-10">
-                <h1 className="font-semibold">Description</h1>
-                <p className="mt-5 text-base font-thin leading-loose">
+                <h1 className="font-semibold text-base">Description</h1>
+                <p className="mt-5 text-lg font-thin leading-loose">
                     {product.description}
                 </p>
             </div>

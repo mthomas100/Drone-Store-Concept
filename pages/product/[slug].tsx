@@ -2,13 +2,21 @@ import { Product } from "graphql/strapiTypes";
 import SingleProduct from "@components/SingleProduct";
 import { PRODUCTS_QUERY } from "graphql/queries";
 import createApolloClient from "@services/graphql";
+import Head from "next/head";
 
 type SingleProductPageProps = {
     product: Product;
 };
 
 const SingleProductPage: React.FC<SingleProductPageProps> = ({ product }) => {
-    return <SingleProduct product={product} />;
+    return (
+        <>
+            <Head>
+                <title>{product.name}</title>
+            </Head>
+            <SingleProduct product={product} />
+        </>
+    );
 };
 
 export default SingleProductPage;
