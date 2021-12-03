@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { Hero } from "graphql/strapiTypes";
 import ProductLink from "./ProductLink";
-import getSmallCloudinary from "utils/getSmallCloudinary";
+// import getSmallCloudinary from "utils/getSmallCloudinary";
 
 type MainProps = {
     hero: Hero;

@@ -43,11 +43,11 @@ const LayoutStateProvider: React.FC<{ children: ReactNode }> = ({
     const [navDesktopWidth, setNavDesktopWidth] = useState(20);
 
     useEffect(() => {
-        console.log({ mobileNavOpen });
+        // console.log({ mobileNavOpen });
     }, [mobileNavOpen]);
 
     useEffect(() => {
-        console.log(navDesktopWidth);
+        // console.log(navDesktopWidth);
     }, [navDesktopWidth]);
 
     return (
