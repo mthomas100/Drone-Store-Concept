@@ -58,7 +58,11 @@ export const NavMobile: React.FC = () => {
     const { openMobileNav } = useLayout();
     return (
         <div className="flex justify-between w-full mx-4">
-            <DroneIcon />
+            <Link href="/">
+                <a>
+                    <DroneIcon />
+                </a>
+            </Link>
             <div onClick={openMobileNav}>
                 <Hamburger className="text-2xl" />
             </div>

@@ -21,6 +21,7 @@ const SingleProduct: React.FC<SingleProductProps> = ({ product }) => {
                         alt={product.image.alt}
                         layout="fill"
                         objectFit="cover"
+                        className="rounded-md md:rounded-none"
                     />
                 </div>
                 <div className="mt-10 md:px-10" ref={detailsRef}>
@@ -39,8 +40,8 @@ const SingleProduct: React.FC<SingleProductProps> = ({ product }) => {
                 </div>
             </div>
             <div className="py-10">
-                <h1 className="text-xl font-semibold">Description</h1>
-                <p className="mt-5 text-xl font-thin leading-relaxed">
+                <h1 className="font-semibold">Description</h1>
+                <p className="mt-5 text-base font-thin leading-loose">
                     {product.description}
                 </p>
             </div>
