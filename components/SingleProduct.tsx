@@ -14,7 +14,9 @@ const SingleProduct: React.FC<SingleProductProps> = ({ product }) => {
             {/* tailwind flexbox two columns. picture on left hand side and info on the right hand side */}
             <div className="pt-10  grid grid-cols-1 md:grid-cols-2 justify-center">
                 <div
-                    className={`mt-10 relative w-full min-h-[20rem] md:h-[${detailsHeight}px]`}
+                    className={`mt-10 relative w-full min-h-[20rem] md:h-[${
+                        detailsHeight || 0
+                    }px]`}
                 >
                     <Image
                         src={product.image.url}

@@ -14,6 +14,7 @@ const SingleProductPage: React.FC<SingleProductPageProps> = ({ product }) => {
 export default SingleProductPage;
 
 // This function gets called at build time
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export async function getStaticPaths() {
     // Call an external API endpoint to get posts
 
@@ -34,12 +35,18 @@ export async function getStaticPaths() {
 }
 
 // This also gets called at build time
-export async function getStaticProps({ params }) {
+
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+export async function getStaticProps({
+    params: { slug },
+}: {
+    params: { slug: string };
+}) {
     /* eslint-disable */
     const { data: { products } } = await createApolloClient.query({
         query: PRODUCTS_QUERY,
         variables: {
-            slug: params.slug,
+            slug
         },
     });
     /* eslint-enable */

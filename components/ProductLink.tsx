@@ -1,4 +1,3 @@
-import { useRouter } from "next/dist/client/router";
 import Link from "next/link";
 
 type ProductProps = {
