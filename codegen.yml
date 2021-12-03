@@ -1,8 +1,8 @@
 overwrite: true
-schema: "http://localhost:1337/graphql"
+schema: "../strapi/exports/graphql/schema.graphql"
 documents: "graphql/**/*.tsx"
 generates:
-    generated/apolloComponents.tsx:
+    ./graphql/strapiTypes.tsx:
         plugins:
             - "typescript"
             - "typescript-operations"
