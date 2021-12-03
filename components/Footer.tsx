@@ -5,10 +5,10 @@ const links = {
     explore: ["Our Services", "Specification", "Refund", "Playlist"],
     account: ["My Account", "Top Benefit", "How-to Tutorials", "Moment"],
     office: [
-        "+021 2208 1996",
-        "SCBD, Jakarta",
+        "+555 555 5555",
+        "Atlanta, Georgia",
         "No. 2 (Autodrone)",
-        "support@autodrone.id",
+        "support@example.com",
     ],
 };
 
