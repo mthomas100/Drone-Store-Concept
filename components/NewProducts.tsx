@@ -1,5 +1,6 @@
-import { MutationUpdateProductArgs, Product } from "graphql/strapiTypes";
+import { Product } from "graphql/strapiTypes";
 import Image from "next/image";
+import ProductLink from "./ProductLink";
 
 type CardProps = {
     product: Product;
@@ -29,7 +30,9 @@ const Card: React.FC<CardProps> = ({ product, buttonColor }) => {
             <div className="flex flex-col text-md items-center justify-self-start w-full h-full leading-loose tracking-wide">
                 {product.description}
             </div>
-            <div className={`button ${buttonColor}`}>Get Now</div>
+            <ProductLink product={product}>
+                <div className={`button ${buttonColor}`}>Get Now</div>
+            </ProductLink>
         </div>
     );
 };
@@ -44,7 +47,7 @@ export const NewProducts: React.FC<NewProductsProps> = ({ products }) => {
             <div id="info" className="bg-white pt-12">
                 <div
                     id="header"
-                    className="flex flex-col items-center text-center mb-4"
+                    className="flex flex-col items-center text-center pb-4"
                 >
                     <div
                         id="title"

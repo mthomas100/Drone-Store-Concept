@@ -6,6 +6,7 @@ import { useWindowSize, useMeasure } from "react-use";
 import { useLayout } from "lib/layoutState";
 import { useData } from "lib/dataState";
 import { v4 as uuidv4 } from "uuid";
+import Link from "next/link";
 
 const DroneIcon: React.FC = () => (
     <div
@@ -37,8 +38,11 @@ export const NavDesktop: React.FC = () => {
                 ref={navRef}
                 className="flex justify-between gap-5 sm:gap-7 md:gap-14 lg:gap-20"
             >
-                <DroneIcon />
-
+                <Link href="/">
+                    <a>
+                        <DroneIcon />
+                    </a>
+                </Link>
                 {links.map((link) => (
                     <div key={uuidv4()} className="text-md cursor-pointer">
                         {link}
@@ -64,7 +68,7 @@ export const NavMobile: React.FC = () => {
 
 export const Header: React.FC = () => {
     const windowSize = useWindowSize();
-    const { navDesktopWidth, setNavDesktopWidth } = useLayout();
+    const { navDesktopWidth } = useLayout();
 
     return (
         <div

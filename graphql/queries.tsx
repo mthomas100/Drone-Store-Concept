@@ -57,8 +57,8 @@ export const MARKETING_CARDS_QUERY = gql`
 `;
 
 export const PRODUCTS_QUERY = gql`
-    query PRODUCTS_QUERY {
-        products {
+    query PRODUCTS_QUERY($slug: String) {
+        products(where: { slug: $slug }) {
             __typename
             id
             _id
@@ -69,6 +69,7 @@ export const PRODUCTS_QUERY = gql`
             image {
                 ...fragmentImage
             }
+            slug
         }
     }
     ${FRAGMENT_IMAGE}

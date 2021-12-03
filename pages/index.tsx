@@ -1,14 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { GetStaticProps } from "next";
 
 import {
-    Container,
-    Header,
     Footer,
     MarketingCards,
     SellingPoints,
     Main,
-    MobileNav,
     Testimonials,
     NewProducts,
 } from "components";
@@ -44,16 +41,14 @@ const Home: React.FC<HomeProps> = ({
     hero,
 }) => {
     return (
-        <Container>
-            <MobileNav />
-            <Header />
+        <div id="homePageWrapper" className="bg-black">
             <Main hero={hero} />
             <MarketingCards marketingCards={marketingCards} />
             <SellingPoints sellingPoint={sellingPoint} />
             <NewProducts products={products} />
             <Testimonials testimonials={testimonials} />
             <Footer />
-        </Container>
+        </div>
     );
 };
 

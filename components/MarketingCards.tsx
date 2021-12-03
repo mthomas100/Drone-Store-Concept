@@ -46,7 +46,7 @@ export const MarketingCards: React.FC<CardsProps> = ({ marketingCards }) => {
     return (
         <div className="flex-1 container max-w-screen-lg mx-auto py-3 bg-black">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {marketingCards.map((marketingCard, i) => (
+                {marketingCards.map((marketingCard) => (
                     <MarketingCard
                         key={marketingCard.id}
                         marketingCard={marketingCard}

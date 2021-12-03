@@ -1,6 +1,5 @@
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 
 const links = {
     explore: ["Our Services", "Specification", "Refund", "Playlist"],

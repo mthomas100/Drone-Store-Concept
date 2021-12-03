@@ -273,6 +273,7 @@ export type Product = {
     name: Scalars["String"];
     description: Scalars["String"];
     image?: Maybe<UploadFile>;
+    slug: Scalars["String"];
 };
 
 export type ProductConnection = {
@@ -297,6 +298,7 @@ export type ProductGroupBy = {
     name?: Maybe<Array<Maybe<ProductConnectionName>>>;
     description?: Maybe<Array<Maybe<ProductConnectionDescription>>>;
     image?: Maybe<Array<Maybe<ProductConnectionImage>>>;
+    slug?: Maybe<Array<Maybe<ProductConnectionSlug>>>;
 };
 
 export type ProductConnectionId = {
@@ -341,10 +343,17 @@ export type ProductConnectionImage = {
     connection?: Maybe<ProductConnection>;
 };
 
+export type ProductConnectionSlug = {
+    __typename?: "ProductConnectionSlug";
+    key?: Maybe<Scalars["String"]>;
+    connection?: Maybe<ProductConnection>;
+};
+
 export type ProductInput = {
     name: Scalars["String"];
     description: Scalars["String"];
     image?: InputMaybe<Scalars["ID"]>;
+    slug: Scalars["String"];
     created_by?: InputMaybe<Scalars["ID"]>;
     updated_by?: InputMaybe<Scalars["ID"]>;
 };
@@ -353,6 +362,7 @@ export type EditProductInput = {
     name?: InputMaybe<Scalars["String"]>;
     description?: InputMaybe<Scalars["String"]>;
     image?: InputMaybe<Scalars["ID"]>;
+    slug?: InputMaybe<Scalars["String"]>;
     created_by?: InputMaybe<Scalars["ID"]>;
     updated_by?: InputMaybe<Scalars["ID"]>;
 };
@@ -1211,6 +1221,7 @@ export type Morph =
     | ProductConnectionName
     | ProductConnectionDescription
     | ProductConnectionImage
+    | ProductConnectionSlug
     | CreateProductPayload
     | UpdateProductPayload
     | DeleteProductPayload
