@@ -1,14 +1,12 @@
 import { useRouter } from "next/dist/client/router";
 import Link from "next/link";
-import { Product } from "graphql/strapiTypes";
 
 type ProductProps = {
     children: React.ReactNode;
-    product: Product;
+    slug: string;
 };
 
-const ProductLink: React.FC<ProductProps> = ({ children, product }) => {
-    const slug = product.slug;
+const ProductLink: React.FC<ProductProps> = ({ children, slug }) => {
     return (
         <Link
             href={{

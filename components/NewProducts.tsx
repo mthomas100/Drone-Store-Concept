@@ -30,7 +30,7 @@ const Card: React.FC<CardProps> = ({ product, buttonColor }) => {
             <div className="flex flex-col text-md items-center justify-self-start w-full h-full leading-loose tracking-wide">
                 {product.description}
             </div>
-            <ProductLink product={product}>
+            <ProductLink slug={product.slug}>
                 <div className={`button ${buttonColor}`}>Get Now</div>
             </ProductLink>
         </div>

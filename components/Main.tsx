@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { Hero } from "graphql/strapiTypes";
+import ProductLink from "./ProductLink";
 
 type MainProps = {
     hero: Hero;
@@ -15,10 +16,11 @@ export const Main: React.FC<MainProps> = ({ hero }) => {
                 <div className="text-lg text-gray-400 my-8 font-light">
                     {hero.description}
                 </div>
-
-                <div className="button bg-indigo-600 text-xs mx-auto w-full sm:w-[60%] font-semibold  ">
-                    {hero.buttonText}
-                </div>
+                <ProductLink slug="drone-light">
+                    <div className="button bg-indigo-600 text-xs mx-auto w-full sm:w-[60%] font-semibold  ">
+                        {hero.buttonText}
+                    </div>
+                </ProductLink>
             </div>
 
             <div
