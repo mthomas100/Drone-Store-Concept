@@ -1,10 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { useWindowSize } from "react-use";
-import {
-    ComponentComponentsSpecification,
-    SellingPoint,
-} from "graphql/strapiTypes";
+import { ComponentComponentsSpecification, SellingPoint } from "graphql/types";
 // import getSmallCloudinary from "utils/getSmallCloudinary";
 
 type SpecificationProps = {

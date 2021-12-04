@@ -1,4 +1,4 @@
-import { Product } from "graphql/strapiTypes";
+import { Product } from "graphql/types";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { useMeasure, useWindowSize } from "react-use";

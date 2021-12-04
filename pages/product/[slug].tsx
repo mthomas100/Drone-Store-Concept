@@ -1,4 +1,4 @@
-import { Product } from "graphql/strapiTypes";
+import { Product } from "graphql/types";
 import SingleProduct from "@components/SingleProduct";
 import { PRODUCTS_QUERY } from "graphql/queries";
 import createApolloClient from "@services/graphql";

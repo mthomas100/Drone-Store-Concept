@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { Hero } from "graphql/strapiTypes";
+import { Hero } from "graphql/types";
 import ProductLink from "./ProductLink";
 // import getSmallCloudinary from "utils/getSmallCloudinary";
 

@@ -16,7 +16,7 @@ import {
     Product,
     SellingPoint,
     Testimonial,
-} from "graphql/strapiTypes";
+} from "graphql/types";
 import {
     MARKETING_CARDS_QUERY,
     PRODUCTS_QUERY,

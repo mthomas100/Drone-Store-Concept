@@ -1,4 +1,4 @@
-import { Testimonial } from "graphql/strapiTypes";
+import { Testimonial } from "graphql/types";
 import Image from "next/image";
 import getSmallCloudinary from "utils/getSmallCloudinary";
 

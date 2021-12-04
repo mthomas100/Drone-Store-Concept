@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { MarketingCard as MarketingCardTypes } from "graphql/strapiTypes";
+import { MarketingCard as MarketingCardTypes } from "graphql/types";
 import getSmallCloudinary from "utils/getSmallCloudinary";
 
 type CardProps = {
