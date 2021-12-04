@@ -1,10 +1,4 @@
-import {
-    createContext,
-    ReactNode,
-    useContext,
-    useEffect,
-    useState,
-} from "react";
+import { createContext, ReactNode, useContext, useState } from "react";
 
 type LayoutContext = {
     mobileNavOpen: boolean;
@@ -22,9 +16,7 @@ const LocalStateProvider = LocalStateContext.Provider;
 const LayoutStateProvider: React.FC<{ children: ReactNode }> = ({
     children,
 }) => {
-    // This is our own custom provider! We will store data (state) and functionality (updaters) in here and anyone can access it via the consumer!const [cartOpen, setCartOpen] = useState(false);
-
-    // NAV BAR RELATED
+    // NAV MOBILE RELATED
     const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
     function toggleMobileNav() {
@@ -39,16 +31,10 @@ const LayoutStateProvider: React.FC<{ children: ReactNode }> = ({
         setMobileNavOpen(true);
     }
 
-    // LAYOUT RELATED
+    // NAV DESKTOP RELATED
     const [navDesktopWidth, setNavDesktopWidth] = useState(0);
 
-    useEffect(() => {
-        // console.log({ mobileNavOpen });
-    }, [mobileNavOpen]);
-
-    useEffect(() => {
-        // console.log(navDesktopWidth);
-    }, [navDesktopWidth]);
+    //BREAKPOINT RELATED
 
     return (
         <LocalStateProvider
@@ -66,8 +52,6 @@ const LayoutStateProvider: React.FC<{ children: ReactNode }> = ({
         </LocalStateProvider>
     );
 };
-
-// Write a custom hook for accessing the cart local state
 
 function useLayout(): LayoutContext | null {
     // We use a consumer here to access the local state
