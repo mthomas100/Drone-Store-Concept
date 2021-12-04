@@ -20,11 +20,6 @@ const SingleProduct: React.FC<SingleProductProps> = ({ product }) => {
             <section className="text-gray-700 body-font overflow-hidden bg-white min-h-screen">
                 <div className="container px-5 py-12 mx-auto">
                     <div className="lg:w-4/5 mx-auto flex flex-wrap ">
-                        {/* <img
-                            alt="ecommerce"
-                            className="lg:w-1/2 w-full object-cover object-center rounded border border-gray-200"
-                            src={product.image.url}
-                        /> */}
                         <div
                             className="block w-full rounded border-gray-200"
                             ref={imageRef}
