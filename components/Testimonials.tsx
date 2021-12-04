@@ -48,7 +48,7 @@ export const Testimonials: React.FC<TestimonialsProps> = ({ testimonials }) => {
     return (
         <>
             <div className="py-12 bg-white">
-                <div className="text-4xl font-semibold tracking-widest leading-relaxed text-center w-full pb-6">
+                <div className="text-4xl font-semibold tracking-widest leading-relaxed text-center w-full pb-6 px-2">
                     What our Pilots are saying
                 </div>
                 <div className="w-full">
