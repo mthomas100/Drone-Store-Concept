@@ -1,22 +1,30 @@
 import { Product } from "graphql/strapiTypes";
 import Image from "next/image";
-import { useMeasure } from "react-use";
+import { useEffect, useRef, useState } from "react";
+import { useWindowSize } from "react-use";
 
 type SingleProductProps = {
     product: Product;
 };
 
 const SingleProduct: React.FC<SingleProductProps> = ({ product }) => {
-    const [detailsRef, { height: detailsHeight }] = useMeasure();
-    console.log(detailsHeight);
+    const windowSize = useWindowSize();
+    const imageRef = useRef(null);
+    const [imageLeftOffset, setImageLeftOffset] = useState(0);
+
+    useEffect(() => {
+        setImageLeftOffset(imageRef.current.getBoundingClientRect().left);
+        console.log(imageLeftOffset);
+    }, [windowSize]);
+
+    //if top of description is below the bottom of picture, then picture must be full width
     return (
-        <div className="bg-white h-screen px-6 md:px-10">
+        <div className="bg-white h-screen px-6 md:px-10 relative">
             {/* tailwind flexbox two columns. picture on left hand side and info on the right hand side */}
-            <div className="pt-10  grid grid-cols-1 md:grid-cols-2 justify-center">
+            <div className="pt-10 flex flex-wrap item justify-center">
                 <div
-                    className={`mt-10 relative w-full min-h-[20rem] md:h-[${
-                        detailsHeight || 0
-                    }px]`}
+                    className={`mt-10 mr-10 w-full md:w-[500px] h-[410px] relative `}
+                    ref={imageRef}
                 >
                     <Image
                         src={product.image.url}
@@ -26,7 +34,7 @@ const SingleProduct: React.FC<SingleProductProps> = ({ product }) => {
                         className="rounded-md md:rounded-none"
                     />
                 </div>
-                <div className="mt-10 md:px-10" ref={detailsRef}>
+                <div className="mt-10 w-[15rem]">
                     <h1 className="text-xl font-bold tracking-wider">
                         {product.name}
                     </h1>
@@ -44,12 +52,12 @@ const SingleProduct: React.FC<SingleProductProps> = ({ product }) => {
                         Order it Now
                     </div>
                 </div>
-            </div>
-            <div className="py-10">
-                <h1 className="font-semibold text-base">Description</h1>
-                <p className="mt-5 text-lg font-thin leading-loose">
-                    {product.description}
-                </p>
+                <div className="py-10">
+                    <h1 className="font-semibold text-base">Description</h1>
+                    <p className="mt-5 text-lg font-thin leading-loose">
+                        {product.description}
+                    </p>
+                </div>
             </div>
         </div>
     );

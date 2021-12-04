@@ -40,7 +40,7 @@ const LayoutStateProvider: React.FC<{ children: ReactNode }> = ({
     }
 
     // LAYOUT RELATED
-    const [navDesktopWidth, setNavDesktopWidth] = useState(20);
+    const [navDesktopWidth, setNavDesktopWidth] = useState(0);
 
     useEffect(() => {
         // console.log({ mobileNavOpen });

@@ -74,6 +74,15 @@ export const Header: React.FC = () => {
     const windowSize = useWindowSize();
     const { navDesktopWidth } = useLayout();
 
+    // const navDesktopWidthIsGreaterThanWindowWidth =
+    //     navDesktopWidth > windowSize.width;
+
+    // console.log({
+    //     windowWidth: windowSize.width,
+    //     navDesktopWidth,
+    //     navDesktopWidthIsGreaterThanWindowWidth,
+    // });
+
     return (
         <div
             id="navWrapper"
