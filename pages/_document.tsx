@@ -44,7 +44,7 @@ class CustomDocument extends Document {
                 <Head>
                     <meta
                         name="description"
-                        content="The Healthy Fermentary is the highest quality source of deliverable fermented beverages"
+                        content="The Drone Store is a place where you can buy drones and other aerial equipment."
                     />
                 </Head>
                 <body>
