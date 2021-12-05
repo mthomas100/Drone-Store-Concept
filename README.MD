@@ -67,6 +67,12 @@ Strapi is a tool used to quickly generate backend api's. Its name strapi is deri
 >Generate code from your GraphQL schema and GraphQL operations with a single function call regardless of your environment or code format.
 >[Go To Documentation](https://www.graphql-code-generator.com/)
 
+## react-use
+
+>A Collection of useful React hooks.
+>[Go To Documentation](https://github.com/streamich/react-use)
+
+
 ## Strapi (Backend)
 
 > [Strapi](Strapi.io) is the next-gen headless CMS, open-source, javascript, enabling content-rich experiences to be created, managed and exposed to any digital device.
@@ -80,10 +86,6 @@ Strapi is a tool used to quickly generate backend api's. Its name strapi is deri
 > Developers and marketers use [Cloudinary](https://cloudinary.com/) to quickly and easily create, manage and deliver their digital experiences across any browser, device and bandwidth.
 
 
-## react-use
-
->A Collection of useful React hooks.
->[Go To Documentation](https://github.com/streamich/react-use)
 
 
 ## ESLint
