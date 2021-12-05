@@ -73,21 +73,6 @@ Strapi is a tool used to quickly generate backend api's. Its name strapi is deri
 >[Go To Documentation](https://github.com/streamich/react-use)
 
 
-## Strapi (Backend)
-
-> [Strapi](Strapi.io) is the next-gen headless CMS, open-source, javascript, enabling content-rich experiences to be created, managed and exposed to any digital device.
-
-## MongoDB (Database)
-
-> Classified as a NoSQL database program, [MongoDB](https://www.mongodb.com/) uses JSON-like documents with optional schemas. 
-
-## Cloudinary
-
-> Developers and marketers use [Cloudinary](https://cloudinary.com/) to quickly and easily create, manage and deliver their digital experiences across any browser, device and bandwidth.
-
-
-
-
 ## ESLint
 
 > A pluggable and configurable linter tool for identifying and reporting on patterns in JavaScript. Maintain your code quality with ease.
@@ -99,6 +84,13 @@ Strapi is a tool used to quickly generate backend api's. Its name strapi is deri
 > An opinionated code formatter; Supports many languages; Integrates with most editors.
 > [Go To Documentation](https://prettier.io/docs/en/index.html)
 
+## MongoDB (Database)
+
+> Classified as a NoSQL database program, [MongoDB](https://www.mongodb.com/) uses JSON-like documents with optional schemas. 
+
+## Cloudinary
+
+> Developers and marketers use [Cloudinary](https://cloudinary.com/) to quickly and easily create, manage and deliver their digital experiences across any browser, device and bandwidth.
 
 
 
