@@ -4,10 +4,11 @@
 
 # Project Description 
 
-Engineered prototype for drone store - based on Figma design by Wahid Ari (link can be found in below). Principally completed this project to learn tailwindCSS and to learn how to dynamically generate graphQL types by using Graphql Codegen. Features: statically generated site, image loading optimized, typescript enabled. Development status: main page and product pages developed. Other links have been left on site but are inactive (in order to keep faithful to the Figma design the site is based off of)
+Engineered prototype for drone store - based on Figma design by Wahid Ari (link can be found in below). Principally completed this project to learn tailwindCSS and to learn how to dynamically generate graphQL types by using Graphql Codegen. Features: statically generated site, image loading optimized, typescript enabled.
 
 [Figma Project](https://www.figma.com/community/file/1019250739032321033) (credit: Wahid Ari)
 
+🛑 **Development status:** main page and product pages developed. Other links have been left on site but are inactive (in order to keep faithful to the Figma design the site is based off of)
 
 ### This Project Features the Following:
 - 🔥Statically Generated Pages (via getStaticPaths and getStaticProps) - used for significantly faster load times
