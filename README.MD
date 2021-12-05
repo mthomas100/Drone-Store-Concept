@@ -4,10 +4,19 @@
 
 # Project Description 
 
-I wanted take a figma design file and translate into a functional and responsive prototype built from scratch.
-[The figma project that this app is based on can be found here](https://www.figma.com/community/file/1019250739032321033) (credit: Wahid Ari). I accomplished building this project taking a full stack approach involving as the main technologies [Strapi](https://strapi.com/) for the Backend and [Next.js](https://nextjs.org/) for the Frontend. **__Presently this application is only composed of the home page (adding dynamic product routes is planned for a future update__**)
+Engineered prototype for drone store - based on Figma design by Wahid Ari (link can be found in below). Principally completed this project to learn tailwindCSS and to learn how to dynamically generate graphQL types by using Graphql Codegen. Features: statically generated site, image loading optimized, typescript enabled. Development status: main page and product pages developed. Other links have been left on site but are inactive (in order to keep faithful to the Figma design the site is based off of)
 
-Some secondary goals of this project were to improve my proficiency in TypeScript and to learn the CSS framework tailwindcss, in addition to building on my knowledge of graphql, nextjs, and strapi. 
+[Figma Project](https://www.figma.com/community/file/1019250739032321033) (credit: Wahid Ari)
+
+
+### This Project Features the Following:
+- 🔥Statically Generated Pages (via getStaticPaths and getStaticProps) - used for significantly faster load times
+- 🔥Blurred image thumbnail loading - used for better site experience for users with slow internet connections
+- 🔥Advanced use of tailwindCSS (including use of its “Just In Time Mode” feature)
+- 🔥Automatic Graphql Type generation via Graphql Codegen (https://www.graphql-code-generator.com/) 
+- 🔥Typed react context usage, allowing for an awesome developer experience via VSCode intellisense 
+- 🔥A+ lighthouse scores in the following categories: Performance, Assessibility, SEO
+
 
 # superplate
 
