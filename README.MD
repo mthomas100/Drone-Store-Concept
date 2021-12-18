@@ -12,11 +12,11 @@ Engineered prototype for drone store - based on Figma design by Wahid Ari (link 
 
 ### This Project Features the Following:
 - Statically Generated Pages (via getStaticPaths and getStaticProps) - used for significantly faster load times
-- �Blurred image thumbnail loading - used for better site experience for users with slow internet connections
-- �Advanced use of tailwindCSS (including use of its “Just In Time Mode” feature)
-- �Automatic Graphql Type generation via Graphql Codegen (https://www.graphql-code-generator.com/) 
-- �Typed react context usage, allowing for an awesome developer experience via VSCode intellisense 
-- �A+ lighthouse scores in the following categories: Performance, Assessibility, SEO
+- Blurred image thumbnail loading - used for better site experience for users with slow internet connections
+- Advanced use of tailwindCSS (including use of its “Just In Time Mode” feature)
+- Automatic Graphql Type generation via Graphql Codegen (https://www.graphql-code-generator.com/) 
+- Typed react context usage, allowing for an awesome developer experience via VSCode intellisense 
+- A+ lighthouse scores in the following categories: Performance, Assessibility, SEO
 
 # Technologies Used
 
